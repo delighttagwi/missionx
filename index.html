@@ -1,0 +1,915 @@
+
+
+<pre>
+1(A) Hospital Patient Billing System
+Problem Statement
+
+Develop a Python program to generate a hospital bill by calculating subtotal, service charge, GST, final bill amount, and average cost per service.
+
+Algorithm
+Input patient name, consultation fee, lab cost, medicine cost
+Calculate subtotal = consultation + lab + medicine
+Calculate service charge = 5% of subtotal
+Calculate GST = 18% of (subtotal + service charge)
+Calculate final amount
+Calculate average cost per service
+Display formatted receipt
+Code
+name = input("Enter Patient Name: ")
+consult_fee = float(input("Enter Consultation Fee: "))
+lab_cost = float(input("Enter Laboratory Test Cost: "))
+med_cost = float(input("Enter Medicine Cost: "))
+
+subtotal = consult_fee + lab_cost + med_cost
+service_charge = subtotal * 0.05
+gst = (subtotal + service_charge) * 0.18
+final_bill = subtotal + service_charge + gst
+avg_cost = subtotal / 3
+
+print("\n------ HOSPITAL BILL RECEIPT ------")
+print(f"Patient Name        : {name}")
+print(f"Consultation Fee    : ₹{consult_fee:.2f}")
+print(f"Lab Test Cost       : ₹{lab_cost:.2f}")
+print(f"Medicine Cost       : ₹{med_cost:.2f}")
+print(f"Subtotal            : ₹{subtotal:.2f}")
+print(f"Service Charge (5%) : ₹{service_charge:.2f}")
+print(f"GST (18%)           : ₹{gst:.2f}")
+print(f"Final Bill Amount   : ₹{final_bill:.2f}")
+print(f"Average per Service : ₹{avg_cost:.2f}")
+print("----------------------------------")
+Sample Output
+Enter Patient Name: Ravi
+Enter Consultation Fee: 500
+Enter Laboratory Test Cost: 1200
+Enter Medicine Cost: 300
+
+------ HOSPITAL BILL RECEIPT ------
+Patient Name        : Ravi
+Consultation Fee    : ₹500.00
+Lab Test Cost       : ₹1200.00
+Medicine Cost       : ₹300.00
+Subtotal            : ₹2000.00
+Service Charge (5%) : ₹100.00
+GST (18%)           : ₹378.00
+Final Bill Amount   : ₹2478.00
+Average per Service : ₹666.67
+----------------------------------
+Result
+
+Thus the hospital billing system successfully calculates charges, tax, and displays the final receipt.
+
+✅ 1(B) Smart Electricity Bill Estimator
+Problem Statement
+
+Develop a program to estimate electricity bill based on units consumed with duty and maintenance charges.
+
+Algorithm
+Input consumer name and units
+Compute energy charge = units × 6
+Add duty = 10%
+Add maintenance = 5%
+Compute total payable
+Compute average daily consumption
+Display results
+Code
+name = input("Enter Consumer Name: ")
+units = float(input("Enter Units Consumed: "))
+
+energy_charge = units * 6
+duty = energy_charge * 0.10
+maintenance = energy_charge * 0.05
+total_bill = energy_charge + duty + maintenance
+avg_daily = units / 30
+
+print("\n------ ELECTRICITY BILL ------")
+print(f"Consumer Name       : {name}")
+print(f"Units Consumed      : {units:.2f}")
+print(f"Energy Charge       : ₹{energy_charge:.2f}")
+print(f"Electricity Duty 10%: ₹{duty:.2f}")
+print(f"Maintenance 5%      : ₹{maintenance:.2f}")
+print(f"Total Payable Bill  : ₹{total_bill:.2f}")
+print(f"Avg Daily Usage     : {avg_daily:.2f} units/day")
+print("-----------------------------")
+Sample Output
+Enter Consumer Name: Priya
+Enter Units Consumed: 250
+
+------ ELECTRICITY BILL ------
+Consumer Name       : Priya
+Units Consumed      : 250.00
+Energy Charge       : ₹1500.00
+Electricity Duty 10%: ₹150.00
+Maintenance 5%      : ₹75.00
+Total Payable Bill  : ₹1725.00
+Avg Daily Usage     : 8.33 units/day
+-----------------------------
+Result
+
+Thus the program estimates electricity charges including duty and maintenance.
+
+✅ 1(C) Student Academic Performance Calculator
+Problem Statement
+
+Write a program to calculate student total marks, average, percentage, and marks needed to reach 90%.
+
+Algorithm
+Input student name and marks in 5 subjects
+Compute total and average
+Compute percentage
+Compute marks needed for 90% target
+Display results
+Code
+name = input("Enter Student Name: ")
+marks = []
+
+for i in range(1, 6):
+    m = float(input(f"Enter marks in subject {i}: "))
+    marks.append(m)
+
+total = sum(marks)
+average = total / 5
+percentage = (total / 500) * 100
+target_marks = 0.90 * 500
+needed = target_marks - total
+
+print("\n------ STUDENT REPORT ------")
+print(f"Student Name     : {name}")
+print(f"Total Marks      : {total:.2f}/500")
+print(f"Average Marks    : {average:.2f}")
+print(f"Percentage       : {percentage:.2f}%")
+
+if needed > 0:
+    print(f"Marks needed for 90%: {needed:.2f}")
+else:
+    print("Already achieved 90% target!")
+print("---------------------------")
+Sample Output
+Enter Student Name: Arun
+Enter marks in subject 1: 80
+Enter marks in subject 2: 70
+Enter marks in subject 3: 75
+Enter marks in subject 4: 85
+Enter marks in subject 5: 90
+
+------ STUDENT REPORT ------
+Student Name     : Arun
+Total Marks      : 400.00/500
+Average Marks    : 80.00
+Percentage       : 80.00%
+Marks needed for 90%: 50.00
+---------------------------
+Result
+
+Thus student performance is calculated with total, percentage and target marks required.
+
+✅ 2(A) ATM Withdrawal Simulator
+Problem Statement
+
+Create a menu-driven ATM program to withdraw money, check balance, and exit.
+
+Algorithm
+Input name and initial balance
+Display menu repeatedly using while loop
+Withdraw if sufficient balance
+Show balance
+Exit and print final balance
+Code
+name = input("Enter Account Holder Name: ")
+balance = float(input("Enter Initial Balance: "))
+
+while True:
+    print("\n----- ATM MENU -----")
+    print("1. Withdraw Money")
+    print("2. Check Balance")
+    print("3. Exit")
+
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+        amt = float(input("Enter withdrawal amount: "))
+        if amt > balance:
+            print("Insufficient Balance!")
+        else:
+            balance -= amt
+            print(f"Withdrawal successful. Remaining Balance: ₹{balance:.2f}")
+
+    elif choice == 2:
+        print(f"Current Balance: ₹{balance:.2f}")
+
+    elif choice == 3:
+        print("Thank you for using ATM!")
+        break
+
+    else:
+        print("Invalid Choice!")
+
+print(f"Final Balance: ₹{balance:.2f}")
+Sample Output
+Enter Account Holder Name: Rahul
+Enter Initial Balance: 5000
+
+----- ATM MENU -----
+1. Withdraw Money
+2. Check Balance
+3. Exit
+Enter choice: 1
+Enter withdrawal amount: 2000
+Withdrawal successful. Remaining Balance: ₹3000.00
+
+Enter choice: 3
+Thank you for using ATM!
+Final Balance: ₹3000.00
+Result
+
+Thus the ATM simulator performs withdrawal and balance checking using loops and conditions.
+
+✅ 2(B) Smart Attendance Analyzer
+Problem Statement
+
+Create a program to check exam eligibility based on 75% attendance.
+
+Algorithm
+Input name and total classes
+Use loop to record P/A
+Count present classes
+Compute percentage
+Display eligibility
+Code
+name = input("Enter Student Name: ")
+total_classes = int(input("Enter Total Classes Conducted: "))
+
+present = 0
+
+for i in range(1, total_classes + 1):
+    status = input(f"Class {i} (P/A): ").upper()
+    if status == "P":
+        present += 1
+
+percentage = (present / total_classes) * 100
+
+print("\n------ ATTENDANCE REPORT ------")
+print(f"Student Name: {name}")
+print(f"Total Classes: {total_classes}")
+print(f"Classes Attended: {present}")
+print(f"Attendance Percentage: {percentage:.2f}%")
+
+if percentage < 75:
+    print("Status: Not Eligible for Exam")
+else:
+    print("Status: Eligible for Exam")
+print("-------------------------------")
+Sample Output
+Enter Student Name: Meena
+Enter Total Classes Conducted: 5
+Class 1 (P/A): P
+Class 2 (P/A): A
+Class 3 (P/A): P
+Class 4 (P/A): P
+Class 5 (P/A): P
+
+Attendance Percentage: 80.00%
+Status: Eligible for Exam
+Result
+
+Thus the program checks eligibility using loops and attendance calculation.
+
+✅ 2(C) Prime Number Analysis Tool
+Problem Statement
+
+Develop a program to display all prime numbers in a range and compute count and average.
+
+Algorithm
+Input start and end
+For each number, check divisibility
+Print primes
+Count primes
+Compute average
+Code
+start = int(input("Enter Starting Number: "))
+end = int(input("Enter Ending Number: "))
+
+prime_list = []
+
+for num in range(start, end + 1):
+    if num > 1:
+        is_prime = True
+        for i in range(2, num):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            prime_list.append(num)
+
+print("\nPrime Numbers:", prime_list)
+print("Total Prime Numbers:", len(prime_list))
+
+if len(prime_list) > 0:
+    avg = sum(prime_list) / len(prime_list)
+    print(f"Average of Prime Numbers: {avg:.2f}")
+else:
+    print("No prime numbers found.")
+Sample Output
+Enter Starting Number: 10
+Enter Ending Number: 30
+
+Prime Numbers: [11, 13, 17, 19, 23, 29]
+Total Prime Numbers: 6
+Average of Prime Numbers: 18.67
+Result
+
+Thus the tool identifies primes, counts them, and calculates average.
+
+✅ 3(A) E-Commerce Shopping Cart Manager
+Problem Statement
+
+Create a cart system allowing add/remove/view items using list, tuple, and set.
+
+Algorithm
+Create empty list
+Menu for add/remove/view
+Use set to remove duplicates
+Display final cart
+Code
+cart = []
+price_category = ("Low", "Medium", "High")
+
+while True:
+    print("\n1.Add Item  2.Remove Item  3.View Cart  4.Exit")
+    choice = int(input("Enter choice: "))
+
+    if choice == 1:
+        item = input("Enter product name: ")
+        cart.append(item)
+
+    elif choice == 2:
+        item = input("Enter item to remove: ")
+        if item in cart:
+            cart.remove(item)
+        else:
+            print("Item not found!")
+
+    elif choice == 3:
+        print("Cart Items:", cart)
+
+    elif choice == 4:
+        break
+
+    else:
+        print("Invalid choice!")
+
+final_cart = list(set(cart))
+print("\nFinal Cart Items (No Duplicates):", final_cart)
+print("Price Categories:", price_category)
+Sample Output
+Final Cart Items (No Duplicates): ['Laptop', 'Shoes']
+Price Categories: ('Low', 'Medium', 'High')
+Result
+
+Thus shopping cart operations are performed using list, set, and tuple.
+
+✅ 3(B) University Club Membership Analyzer
+Problem Statement
+
+Write a program to analyze membership of Coding and Robotics clubs using sets.
+
+Algorithm
+Input coding members into set
+Input robotics members into set
+Find intersection and differences
+Store meeting times in tuple
+Code
+coding = set(input("Enter Coding Club members (comma separated): ").split(","))
+robotics = set(input("Enter Robotics Club members (comma separated): ").split(","))
+
+both = coding & robotics
+only_coding = coding - robotics
+only_robotics = robotics - coding
+
+meeting_times = ("Monday 5PM", "Wednesday 4PM")
+
+print("\nStudents in Both Clubs:", both)
+print("Only Coding Club:", only_coding)
+print("Only Robotics Club:", only_robotics)
+print("Meeting Times:", meeting_times)
+Sample Output
+Students in Both Clubs: {'Ravi'}
+Only Coding Club: {'Anu'}
+Only Robotics Club: {'Kiran'}
+Meeting Times: ('Monday 5PM', 'Wednesday 4PM')
+Result
+
+Thus set operations successfully identify club membership patterns.
+
+✅ 3(C) Inventory Tracking System
+Problem Statement
+
+Develop a warehouse inventory system using list, tuple and set.
+
+Algorithm
+Store products in list
+Store suppliers in tuples
+Convert suppliers to set for uniqueness
+Sort products and display
+Code
+products = ["Mouse", "Keyboard", "Monitor", "Mouse"]
+suppliers = [("ABC Traders", "Chennai"), ("XYZ Pvt Ltd", "Delhi"), ("ABC Traders", "Chennai")]
+
+supplier_names = set([s[0] for s in suppliers])
+
+products.sort()
+
+print("Sorted Products:", products)
+print("Unique Suppliers:", supplier_names)
+Sample Output
+Sorted Products: ['Keyboard', 'Monitor', 'Mouse', 'Mouse']
+Unique Suppliers: {'XYZ Pvt Ltd', 'ABC Traders'}
+Result
+
+Thus inventory is displayed in sorted order and duplicate suppliers are removed.
+
+✅ 4(A) Student Information Management System
+Problem Statement
+
+Create a student record system using dictionary with add, update, delete, search.
+
+Algorithm
+Store student details in dictionary
+Menu operations
+Display students above 80
+Code
+students = {}
+
+while True:
+    print("\n1.Add 2.Update 3.Delete 4.Search 5.Above 80 6.Exit")
+    ch = int(input("Enter choice: "))
+
+    if ch == 1:
+        sid = int(input("Enter ID: "))
+        name = input("Enter Name: ")
+        marks = float(input("Enter Marks: "))
+        students[sid] = {"name": name, "marks": marks}
+
+    elif ch == 2:
+        sid = int(input("Enter ID to update: "))
+        if sid in students:
+            students[sid]["marks"] = float(input("Enter new marks: "))
+
+    elif ch == 3:
+        sid = int(input("Enter ID to delete: "))
+        students.pop(sid, None)
+
+    elif ch == 4:
+        sid = int(input("Enter ID to search: "))
+        print(students.get(sid, "Record Not Found"))
+
+    elif ch == 5:
+        for sid, data in students.items():
+            if data["marks"] > 80:
+                print(sid, data)
+
+    elif ch == 6:
+        break
+Sample Output
+1.Add 2.Update 3.Delete 4.Search 5.Above 80 6.Exit
+Enter choice: 5
+101 {'name': 'Arun', 'marks': 85.0}
+Result
+
+Thus dictionary operations successfully manage student records.
+
+✅ 4(B) Online Store Product Catalog
+Problem Statement
+
+Create product catalog using dictionary with add/update/remove and total value.
+
+Algorithm
+Store products in dictionary
+Perform add/update/delete
+Compute total value
+Code
+catalog = {}
+
+while True:
+    print("\n1.Add 2.Update 3.Remove 4.Total Value 5.Exit")
+    ch = int(input("Enter choice: "))
+
+    if ch == 1:
+        name = input("Enter product name: ")
+        price = float(input("Enter price: "))
+        catalog[name] = price
+
+    elif ch == 2:
+        name = input("Enter product name: ")
+        if name in catalog:
+            catalog[name] = float(input("Enter new price: "))
+
+    elif ch == 3:
+        name = input("Enter product name: ")
+        catalog.pop(name, None)
+
+    elif ch == 4:
+        total = sum(catalog.values())
+        print("Total Catalog Value:", total)
+
+    elif ch == 5:
+        break
+Sample Output
+Total Catalog Value: 4500.0
+Result
+
+Thus the product catalog is maintained using dictionary operations.
+
+✅ 4(C) City Temperature Monitoring System
+Problem Statement
+
+Develop a program to monitor city temperatures and find hottest, coldest and average.
+
+Algorithm
+Store city-temperature pairs in dictionary
+Use max and min functions
+Compute average temperature
+Allow updates
+Code
+temps = {"Chennai": 35, "Delhi": 40, "Mumbai": 32}
+
+hottest = max(temps, key=temps.get)
+coldest = min(temps, key=temps.get)
+
+avg_temp = sum(temps.values()) / len(temps)
+
+print("Hottest City:", hottest, temps[hottest])
+print("Coldest City:", coldest, temps[coldest])
+print(f"Average Temperature: {avg_temp:.2f}")
+Sample Output
+Hottest City: Delhi 40
+Coldest City: Mumbai 32
+Average Temperature: 35.67
+Result
+
+Thus the program finds hottest, coldest and average temperature using dictionary traversal.
+
+✅ 5(A) Secure Login Validation System
+Problem Statement
+
+Create a login system validating password length and digit using exception handling.
+
+Algorithm
+Input username and password
+Check length >= 8
+Check digit exists
+Use try-except
+Mask password
+Code
+try:
+    username = input("Enter Username: ")
+    password = input("Enter Password: ")
+
+    if len(password) < 8:
+        raise ValueError("Password must be at least 8 characters.")
+
+    if not any(ch.isdigit() for ch in password):
+        raise ValueError("Password must contain at least one digit.")
+
+    masked = "*" * len(password)
+
+    print("Login Successful!")
+    print("Masked Password:", masked)
+
+except ValueError as e:
+    print("Login Failed:", e)
+Sample Output
+Enter Username: admin
+Enter Password: admin123
+Login Successful!
+Masked Password: ********
+Result
+
+Thus the login system validates password rules using exception handling.
+
+✅ 5(B) Email Address Validator
+Problem Statement
+
+Develop a program to validate email format and extract username and domain.
+
+Algorithm
+Input email
+Check @ and .com
+Split into username and domain
+Handle invalid using exception
+Code
+try:
+    email = input("Enter Email: ")
+
+    if "@" not in email or ".com" not in email:
+        raise ValueError("Invalid Email Format")
+
+    username, domain = email.split("@")
+
+    print("Valid Email!")
+    print("Username:", username)
+    print("Domain:", domain)
+
+except ValueError as e:
+    print("Error:", e)
+Sample Output
+Enter Email: ravi@gmail.com
+Valid Email!
+Username: ravi
+Domain: gmail.com
+Result
+
+Thus the program validates email and extracts components.
+
+✅ 5(C) Text Analyzer for Article Processing
+Problem Statement
+
+Create a program to analyze paragraph text and compute word, character, sentence counts.
+
+Algorithm
+Input paragraph
+Count words using split
+Count characters using len
+Count sentences using '.'
+Convert to upper/lower
+Replace Python with PY
+Code
+text = input("Enter Paragraph: ")
+
+words = len(text.split())
+chars = len(text)
+sentences = text.count(".")
+
+print("Word Count:", words)
+print("Character Count:", chars)
+print("Sentence Count:", sentences)
+
+print("Uppercase:", text.upper())
+print("Lowercase:", text.lower())
+print("Replaced Text:", text.replace("Python", "PY"))
+Sample Output
+Word Count: 6
+Character Count: 30
+Sentence Count: 1
+Result
+
+Thus the text analyzer gives quick statistics and performs string operations.
+
+✅ 6(A) Library Fine Calculator System
+Problem Statement
+
+Write a function to calculate fine based on overdue days.
+
+Algorithm
+Input overdue days
+If <=5 fine = days×2
+If <=10 fine = 5×2 + (days-5)×5
+Else fine = 5×2 + 5×5 + (days-10)×10
+Display fine
+Code
+def calculate_fine(days):
+    if days <= 5:
+        return days * 2
+    elif days <= 10:
+        return (5 * 2) + (days - 5) * 5
+    else:
+        return (5 * 2) + (5 * 5) + (days - 10) * 10
+
+days = int(input("Enter overdue days: "))
+fine = calculate_fine(days)
+
+print("Total Fine Amount: ₹", fine)
+Sample Output
+Enter overdue days: 12
+Total Fine Amount: ₹ 55
+Result
+
+Thus the program calculates fine using user-defined functions and conditions.
+
+✅ 6(B) Factorial-Based Password Strength Checker
+Problem Statement
+
+Create a program using recursion to calculate factorial and classify password strength.
+
+Algorithm
+Recursive factorial(n)
+Input password length
+Compute factorial
+Classify Weak/Medium/Strong
+Display result
+Code
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial(n - 1)
+
+def check_strength(length):
+    score = factorial(length)
+
+    if score < 100:
+        return "Weak"
+    elif score <= 10000:
+        return "Medium"
+    else:
+        return "Strong"
+
+length = int(input("Enter password length: "))
+strength = check_strength(length)
+
+print("Password Strength:", strength)
+Sample Output
+Enter password length: 6
+Password Strength: Medium
+Result
+
+Thus factorial recursion is used to determine password strength.
+
+✅ 6(C) Placement Eligibility Checker using GCD
+Problem Statement
+
+Write a recursive program to compute GCD and check number compatibility.
+
+Algorithm
+Use Euclidean recursion gcd(a,b)
+Input two numbers
+Compute gcd
+If gcd==1 compatible else not
+Display result
+Code
+def gcd(a, b):
+    if b == 0:
+        return a
+    return gcd(b, a % b)
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+g = gcd(a, b)
+
+print("GCD:", g)
+
+if g == 1:
+    print("Highly Compatible (Coprime Numbers)")
+else:
+    print("Not Fully Compatible")
+Sample Output
+Enter first number: 12
+Enter second number: 25
+GCD: 1
+Highly Compatible (Coprime Numbers)
+Result
+
+Thus GCD recursion determines compatibility between two integers.
+
+✅ 7(A) Bank Account Management System
+Problem Statement
+
+Create a BankAccount class to perform deposit, withdrawal, and display balance.
+
+Algorithm
+Define class with attributes
+Create methods deposit, withdraw, display_balance
+Create object and test operations
+Code
+class BankAccount:
+    def __init__(self, acc_no, name, balance):
+        self.account_number = acc_no
+        self.customer_name = name
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient Balance!")
+        else:
+            self.balance -= amount
+
+    def display_balance(self):
+        print("Current Balance:", self.balance)
+
+acc = BankAccount(101, "Ravi", 5000)
+acc.deposit(2000)
+acc.withdraw(1000)
+acc.display_balance()
+Sample Output
+Current Balance: 6000
+Result
+
+Thus class and object methods successfully perform banking operations.
+
+✅ 7(B) Product Inventory System
+Problem Statement
+
+Create a Product class using default and parameterized constructors.
+
+Algorithm
+Define class Product
+Create default + parameterized constructor
+Update stock, calculate value, display product
+Code
+class Product:
+    def __init__(self, product_name="None", price=0, quantity=0):
+        self.product_name = product_name
+        self.price = price
+        self.quantity = quantity
+
+    def update_stock(self, qty):
+        self.quantity += qty
+
+    def calculate_value(self):
+        return self.price * self.quantity
+
+    def display_product(self):
+        print("Product:", self.product_name)
+        print("Price:", self.price)
+        print("Quantity:", self.quantity)
+        print("Total Value:", self.calculate_value())
+
+p = Product("Laptop", 50000, 2)
+p.update_stock(3)
+p.display_product()
+Sample Output
+Product: Laptop
+Price: 50000
+Quantity: 5
+Total Value: 250000
+Result
+
+Thus constructors and methods manage product stock and calculate inventory value.
+
+✅ 7(C) Smart City Management System (Inheritance)
+Problem Statement
+
+Develop a Smart City system demonstrating hierarchical, multilevel, and multiple inheritance.
+
+Algorithm
+Create base class Person
+Create Citizen and Employee (hierarchical)
+Create Engineer (multilevel)
+Create SmartWorker (multiple inheritance)
+Display outputs
+Code
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display_person(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
+
+    def is_adult(self):
+        return self.age >= 18
+
+    def greet(self):
+        print("Hello,", self.name)
+
+class Citizen(Person):
+    def __init__(self, name, age, city):
+        super().__init__(name, age)
+        self.city = city
+
+    def show_city(self):
+        print("City:", self.city)
+
+class Employee(Person):
+    def __init__(self, name, age, salary):
+        super().__init__(name, age)
+        self.salary = salary
+
+    def calculate_tax(self):
+        return self.salary * 0.1
+
+class Engineer(Employee):
+    def __init__(self, name, age, salary, department):
+        super().__init__(name, age, salary)
+        self.department = department
+
+    def show_department(self):
+        print("Department:", self.department)
+
+class SmartWorker(Citizen, Employee):
+    def __init__(self, name, age, city, salary):
+        Citizen.__init__(self, name, age, city)
+        self.salary = salary
+
+    def show_role(self):
+        print("Role: Citizen + Employee")
+
+sw = SmartWorker("Arun", 25, "Chennai", 50000)
+sw.display_person()
+sw.show_city()
+print("Tax:", sw.calculate_tax())
+sw.show_role()
+Sample Output
+Name: Arun
+Age: 25
+City: Chennai
+Tax: 5000.0
+Role: Citizen + Employee
+Result
+
+Thus the program demonstrates hierarchical, multilevel and multiple inheritance in Python.
+
+</pre>

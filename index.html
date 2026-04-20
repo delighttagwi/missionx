@@ -1,915 +1,1092 @@
 
 
 <pre>
-1(A) Hospital Patient Billing System
-Problem Statement
+Department of Computer Science and Engineering
+KPR Institute of Engineering and Technology
+B.E. – Computer Science and Engineering
+LABORATORY MANUAL
+U25SC202 – Linux Fundamentals and Scripting
+(Regulation 2025)
+KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY
+(Autonomous)
+COIMBATORE – 641 407
+Name : ……………………………………………………………….
+Roll Number : ……………………………………………………………….
+Subject Code & Title : ……………………………………………………………….
+Department : ……………………………………………………………….
+Year & Semester : ……………………………………………………………….
+Certified that this is a bonafide of work done by the above student during the academic year 2025-2026.
+Faculty In- Charge Head of the Department
+He/ She hassubmitted the record for the End Semester Practical Examination held on ……
+Internal Examiner External Examiner
+LABORATORY Manual
+Vision of the Institution
+To become a premier institute of academic excellence by imparting technical,
+intellectual and professional skills to students for meeting the diverse needs of
+industry, society, the nation and the world at large
+Mission of the Institution
+1. Commitment to offer value-based education and enhancement of practical skills.
+2. Continuous assessment of teaching and learning processes through scholarly activities.
+3. Enriching research and innovation activities in collaboration with industry and
+institutes of repute.
+4. Ensuring the academic processes to uphold culture, ethics and social responsibilities.
+Vision of the Department
+To be a premier centre for education, dissemination of knowledge and research in the frontier
+areas of computer science and engineering to serve the community with moral values.
 
-Develop a Python program to generate a hospital bill by calculating subtotal, service charge, GST, final bill amount, and average cost per service.
-
-Algorithm
-Input patient name, consultation fee, lab cost, medicine cost
-Calculate subtotal = consultation + lab + medicine
-Calculate service charge = 5% of subtotal
-Calculate GST = 18% of (subtotal + service charge)
-Calculate final amount
-Calculate average cost per service
-Display formatted receipt
-Code
-name = input("Enter Patient Name: ")
-consult_fee = float(input("Enter Consultation Fee: "))
-lab_cost = float(input("Enter Laboratory Test Cost: "))
-med_cost = float(input("Enter Medicine Cost: "))
-
-subtotal = consult_fee + lab_cost + med_cost
-service_charge = subtotal * 0.05
-gst = (subtotal + service_charge) * 0.18
-final_bill = subtotal + service_charge + gst
-avg_cost = subtotal / 3
-
-print("\n------ HOSPITAL BILL RECEIPT ------")
-print(f"Patient Name        : {name}")
-print(f"Consultation Fee    : ₹{consult_fee:.2f}")
-print(f"Lab Test Cost       : ₹{lab_cost:.2f}")
-print(f"Medicine Cost       : ₹{med_cost:.2f}")
-print(f"Subtotal            : ₹{subtotal:.2f}")
-print(f"Service Charge (5%) : ₹{service_charge:.2f}")
-print(f"GST (18%)           : ₹{gst:.2f}")
-print(f"Final Bill Amount   : ₹{final_bill:.2f}")
-print(f"Average per Service : ₹{avg_cost:.2f}")
-print("----------------------------------")
-Sample Output
-Enter Patient Name: Ravi
-Enter Consultation Fee: 500
-Enter Laboratory Test Cost: 1200
-Enter Medicine Cost: 300
-
------- HOSPITAL BILL RECEIPT ------
-Patient Name        : Ravi
-Consultation Fee    : ₹500.00
-Lab Test Cost       : ₹1200.00
-Medicine Cost       : ₹300.00
-Subtotal            : ₹2000.00
-Service Charge (5%) : ₹100.00
-GST (18%)           : ₹378.00
-Final Bill Amount   : ₹2478.00
-Average per Service : ₹666.67
-----------------------------------
+Mission of the Department
+1. Provide holistic education incorporating the state-of-the-art technologies to produce
+successful professionals.
+2. Facilitate the students to pursue higher education and research in the areas related to
+Computer Science and Engineering.
+3. Promote strong collaborations with the industries and steer the students to nurture their
+interest in continuous learning to meet the changing needs of the society.
+RUBRICS FOR ASSESSMENT
+Criteria Excellent (4 Marks) Good (3 Marks) Adequate
+(2 Marks) Inadequate (1 Mark)
+A. Preparation
+& Observation
+Aim &
+Procedure
+Clearly defines the
+aim and follows a
+well-structured,
+detailed procedure;
+demonstrates
+complete
+understanding of steps
+involved.
+Definesthe aim with
+a mostly clear
+procedure;
+understandsthe steps
+with minor errors or
+omissions.
+Defines aim but
+lacks clarity in
+procedure;
+followssteps but
+missessome key
+details.
+Aim is unclear or
+procedure isincomplete,
+showing little
+understanding of
+experiment steps.
+Connection
+All components are
+connected accurately;
+demonstrates
+excellent
+understanding of
+circuit connections
+and pin
+configurations.
+Most components are
+connected accurately
+with only minor
+issuesin connections.
+Basic connections
+are made but with
+noticeable errors;
+partial
+understanding of
+connections.
+Connections are largely
+incorrect, with little
+understanding of circuit
+design.
+B. Results & Interpretation
+Code &
+Logic
+Code is logically
+structured, optimized,
+and well-commented;
+includes error
+handling and
+accurately addresses
+experiment
+requirements.
+Code followslogical
+structure and
+addresses most
+requirements;
+comments included
+but could be
+improved.
+Code isfunctional
+but lacksstructure
+or logic in parts;
+minimal
+comments and
+minor errors in
+addressing
+requirements.
+Code isincomplete, poorly
+structured, and does not
+meet experiment
+requirements; lacks
+comments.
+Execution &
 Result
+Experiment runs
+smoothly with
+expected resultsfully
+achieved; thoroughly
+documents and
+interpretsresults with
+relevant insights.
+Experiment runs with
+mostly expected
+results; documents
+results with some
+interpretation.
+Experiment runs
+partially but with
+unexpected
+results; minimal
+documentation or
+interpretation of
+results.
+Experiment does not run or
+results are incorrect; little
+to no documentation or
+understanding of results.
+C. Viva Voce
+Viva Voce
+Responds accurately
+and confidently to all
+questions,
+demonstrating a deep
+understanding of the
+experiment's theory
+and applications.
+Responds to most
+questions accurately,
+demonstrating a good
+understanding with
+minor gaps.
+Respondsto some
+questions but with
+limited accuracy;
+shows basic
+understanding of
+theory.
+Struggles to respond to
+questions, showing little
+understanding of the
+experiment's theory and
+purpose
+INDEX
+Ex.
+No.
+Date Experiment Name Page
+No.
+Marks Signature
+01 Installation and configuration of Red Hat
+Linux including an analysis of the booting
+process
+02 Navigation and exploration of the Linux
+Filesystem Hierarchy Standard (FHS)
+03 Mastering the Command Line Interface (CLI)
+and basic terminal operations
+04 File management operations using commandline utilities
+05 Administration of local user accounts and
+group memberships
+06 Implementation of file system permissions and
+access control lists (ACLs)
+07 Monitoring and management of Linux system
+processes and resources
+08 Configuration and securing of OpenSSH for
+remote access
+09 Implementation of basic Shell Programming
+logic:
+a. Interactive scripts with user input
+b. Handling positional parameters
+c. Arithmetic operations
+d. Conditional statements (if-then-else, nested
+if)
+e. Logical operators and complex conditions
+f. Multi-way branching using elif and case
+structures
+g. Iterative constructs using while and for loops
+h. Use of shell meta characters and globbing
+10 Development of a shell script to display
+specific line ranges from a given file
+11 Creation of a shell script to delete lines
+containing specific patterns across multiple
+files
+12 Scripting to identify and list files with specific
+read, write, and execute permissions
+13 Advanced file handling and directory
+management:
+a. Automating file creation in specific directory
+paths ($USER/class/ batch).
+b. Copying and managing page profiles.
+c. Identifying and printing differences between
+files.
+d. Pattern matching and extraction using
+grep/sed.
+14 System utility scripting: a. Reporting the
+current count of logged-in users.
+b. Generating column-formatted file listings.
+c. Managing job priorities (nice/renice).
+d. Implementing persistent background tasks
+(nohup/disown).
+15 Development of a shell-based database
+application for student record management
+(View, Add, Delete)
+EX.NO : 01
+INSTALLATION AND CONFIGURATION OF RED HAT
+LINUX INCLUDING AN ANALYSIS OF THE BOOTING
+PROCESS
+DATE :
+AIM
+ To install and configure Red Hat Linux on a computer system and to analyze the Linux
+booting process, including the roles of BIOS/UEFI, bootloader, kernel, and system initialization.
 
-Thus the hospital billing system successfully calculates charges, tax, and displays the final receipt.
+Apparatus / Requirements
+• Computer system / Virtual Machine
+• Red Hat Enterprise Linux ISO
+• Bootable USB / VirtualBox
+• Minimum 4 GB RAM, 20 GB disk space
+Theory
+Linux is an open source operating system (OS) created in 1991 by Linus Torvalds. Today, thanks to
+its global community of enthusiasts, you can find it in all kinds of devices, from retail point-of-sale
+systems to the world's most powerful supercomputers.
+What is an operating system?
+An OS is the software that directly manages a system’s hardware and resources, like the CPU,
+memory, and storage. The OS sits between applications and hardware and makes the connections
+between all your software and the physical resources that do the work.
+Humans can interact with computers in many ways. Most people’s primary interaction with their
+hardware happens through an OS, which helps them access a computer’s core functions. There are
+lots of OS options, from proprietary software made by large companies to open source projects
+created and supported by volunteers.
+Think about an OS like a car engine. An engine can run on its own, but it becomes part of a
+functional car when it’s connected with a transmission, axles, and wheels. Without the engine
+running properly, the car won’t work.
+Procedure
+After booting the installation USB drive:
+1. Select Install Red Hat Enterprise Linux in the boot menu and press Enter.
+2. After Anaconda, the Red Hat Enterprise Linux installer, started, select your language and
+region, and click Continue.
+3. The Installation Summary is the central screen to set configuration options:
+You can display and modify the individual options in any order. If a configuration option was
+automatically configured correctly, no further action is required. However, if items are marked with
+an exclamation point icon, you must complete the configuration for these items before you can begin
+the installation.
+Note
+Nothing will be written to the disk until you click the Begin Installation button.
+4. Select Date & Time:
+i. Set your region and the nearest city in your time zone.
+ii. Click Done to return to the Installation Summary.
+5. Select Keyboard Layout:
+i. Use the + and - buttons to add and remove keyboard layouts.
+ii. If you enable multiple keyboard layouts, move your preferred layout to the top of the
+list using the ↑ button to set it as default.
+iii. Click Done to return to the Installation Summary.
+6. Select Installation Destination:
+i. Select the target disk. A check mark is displayed next to the selected target.
+The selected disk is partitioned automatically.
+ii. Click Done to return to the Installation Summary.
+7. Select Network and Hostname:
+i. Click the Ethernet sliding switch in the top right corner to enable the network
+configuration.
+ii. Optional, select the device and click Configure to update the network interface
+configuration.
+iii. Click Done to return to the Installation Summary.
+Note
+Anaconda applies the network settings immediately. They are used during the setup and after the
+installation.
+8. On the Installation Summary screen, click Begin Installation.
+9. The installation starts and the Configuration screen is displayed:
+During the installation:
+i. Select Root Password:
+i. Enter the password for the root user and confirm it.
+ii. Click Done to return to the Configuration screen.
+ii. Select User Creation:
+i. Enter the user's full name.
+ii. Optionally, update the automatically generated user name.
+iii. Set the password and confirm it.
+iv. Optionally, check the Make this user administrator check box. This will add
+the user to the wheel group and allow this account to use sudo without any
+further configuration.
+v. Click Done to return to the Configuration screen.
+iii. Wait until the installation completes and click Reboot.
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Red Hat Linux was successfully installed and configured. The system booted correctly using the
+GRUB bootloader, the kernel was loaded, and system services were initialized properly. The Linux
+booting process was analyzed and verified, ensuring stable and efficient system startup.
+6
+EX.NO : 02
+Navigation and exploration of the Linux Filesystem Hierarchy
+DATE Standard (FHS) :
+AIM
+ To explore and understand the Linux Filesystem Hierarchy Standard (FHS) and navigate through
+important directories.
+Procedure
+1. Open the terminal.
+2. Display the root directory contents.
+3. Navigate through standard directories such as /bin, /etc, /home, /var.
+4. Identify the purpose of each directory.
+In Linux, these commands are used to navigate the file system and view its structure. Below is an
+explanation of each command and the specific directories mentioned.
+Core Commands
+• pwd (Print Working Directory): Displays the full absolute path of your current location.
+• ls (List): Shows the files and subdirectories within the current directory.
+• cd (Change Directory): Used to move from one directory to another.
+Directory Overview
+The directories mentioned are standard top-level folders in the Linux Filesystem Hierarchy Standard
+(FHS):
+• / (Root): The base of the entire file system; every other folder is located under this single
+slash.
+• /etc: Contains system-wide configuration files that control how programs and services
+behave.
+• /home: Houses the personal folders for individual users (e.g., /home/username), where they
+store personal files and settings.
+• /var (Variable): Stores data that changes frequently while the system is running, such as
+system logs, caches, and spool files.
+Sequential Breakdown of Your Input
+If you run these commands in sequence, you would be performing the following actions:
+1. pwd: See where you are starting (likely your user home).
+2. ls /: List everything at the very top of the system (root).
+3. cd /etc: Move into the configuration directory.
+4. ls: View the configuration files inside /etc.
+5. cd /home: Move into the user home parent directory.
+6. ls: See a list of all user account folders on the system.
+7. cd /var: Move into the variable data directory.
+8. ls: View log folders and other frequently changing system data
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Successfully navigated and understood the structure and purpose of major Linux FHS
+directories.
+EX.NO : 03
+Mastering the Command Line Interface (CLI) and basic terminal
+DATE operations :
+AIM
+ To learn basic command-line operations in Linux using the terminal.
 
-✅ 1(B) Smart Electricity Bill Estimator
-Problem Statement
-
-Develop a program to estimate electricity bill based on units consumed with duty and maintenance charges.
-
-Algorithm
-Input consumer name and units
-Compute energy charge = units × 6
-Add duty = 10%
-Add maintenance = 5%
-Compute total payable
-Compute average daily consumption
-Display results
-Code
-name = input("Enter Consumer Name: ")
-units = float(input("Enter Units Consumed: "))
-
-energy_charge = units * 6
-duty = energy_charge * 0.10
-maintenance = energy_charge * 0.05
-total_bill = energy_charge + duty + maintenance
-avg_daily = units / 30
-
-print("\n------ ELECTRICITY BILL ------")
-print(f"Consumer Name       : {name}")
-print(f"Units Consumed      : {units:.2f}")
-print(f"Energy Charge       : ₹{energy_charge:.2f}")
-print(f"Electricity Duty 10%: ₹{duty:.2f}")
-print(f"Maintenance 5%      : ₹{maintenance:.2f}")
-print(f"Total Payable Bill  : ₹{total_bill:.2f}")
-print(f"Avg Daily Usage     : {avg_daily:.2f} units/day")
-print("-----------------------------")
-Sample Output
-Enter Consumer Name: Priya
-Enter Units Consumed: 250
-
------- ELECTRICITY BILL ------
-Consumer Name       : Priya
-Units Consumed      : 250.00
-Energy Charge       : ₹1500.00
-Electricity Duty 10%: ₹150.00
-Maintenance 5%      : ₹75.00
-Total Payable Bill  : ₹1725.00
-Avg Daily Usage     : 8.33 units/day
------------------------------
+Procedure
+➢ Open terminal.
+➢ Execute basic commands like date, cal, whoami.
+➢ Use man command to view help pages.
+Core Commands
+The commands you listed are common Linux/Unix shell commands: date shows the current
+date/time, cal displays a calendar, whoami shows your username, man ls provides the manual for
+the ls (list files) command, and clear clears the terminal screen. Running these would provide
+information about the system's time, calendar, your identity, file listing details, and refresh your
+terminal view.
+Here's a breakdown of what each command does:
+• date: Displays the current date, time, and time zone.
+• cal: Shows a calendar, usually for the current month, with the current day highlighted; cal -
+y shows the whole year.
+• whoami: Prints your effective user ID (username) to the standard output.
+• man ls: Opens the manual page (documentation) for the ls command, explaining how to list
+files and directories, and its various options (like ls -l, ls -a, etc.).
+• clear: Clears all previous text from the terminal screen, leaving a clean prompt.
+Aim & understanding
+Procedure
+Correct commands
 Result
+Total
+RESULT
+Basic terminal operations were executed successfully.
+EX.NO : 04
+File management operations using command-line utilities
+DATE :
+AIM
+To perform file creation, copying, moving, renaming, and deletion using Linux commands
+Procedure
+➢ Create files and directories.
+➢ Copy and move files.
+➢ Delete files and directories.
+ .
+Core Commands
+touch file1.txt
+mkdir testdir
+cp file1.txt testdir/
+mv file1.txt file2.txt
+rm file2.txt
+rmdir testdir
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ File management operations were performed successfully.
+EX.NO : 05
+Administration of local user accounts and group memberships
+DATE :
+AIM
+To create and manage users and groups in Linux.
 
-Thus the program estimates electricity charges including duty and maintenance.
+Procedure
+➢ Create a new user.
+➢ Create a group.
+➢ Add user to the group.
+➢ Verify user and group details.
+.
+Core Commands
+sudo useradd student1
+sudo passwd student1
+sudo groupadd labgroup
+sudo usermod -aG labgroup student1
+id student1
+Directory Overview
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ User and group administration tasks were completed successfully.
+EX.NO : 06
+Implementation of file system permissions and access control lists
+DATE (ACLs) :
+AIM
+ To implement file permissions and ACLs in Linux.
 
-✅ 1(C) Student Academic Performance Calculator
-Problem Statement
+Procedure
+➢ Create a file.
+➢ Assign permissions using chmod.
+➢ Set ACL permissions using setfacl.
+.
+Core Commands
+Implementation of Traditional File Permissions
+Traditional file permissions are widely implemented in Unix-like systems (such as Linux) and focus
+on three user classes: the owner, the owning group, and all others.
+• Permissions: There are three basic permission types:
+o Read (r): Allows viewing the content of a file or listing the contents of a directory.
+o Write (w): Allows modifying a file's content or adding/removing files within a
+directory.
+o Execute (x): Allows running an executable file or script, or accessing a directory
+(search permission).
+• Commands (Linux):
+o ls -l: Displays file permissions. A hyphen (-) indicates a regular file, and d indicates a
+directory.
+o chmod: Changes permissions using symbolic (e.g., u+r) or numeric (octal, e.g., 755)
+modes.
+o chown: Changes the file owner.
+o chgrp: Changes the group owner.
+Implementation of Access Control Lists (ACLs)
+ACLs are an extension of the traditional permission model, allowing administrators to define
+permissions for individual users or groups not covered by the standard owner and group
+permissions.
+• Key Concepts:
+o Granularity: ACLs offer more detailed control, useful in complex environments where
+specific access is needed for multiple users or groups.
+o Access Control Entries (ACEs): Each ACL is a list of entries, with each ACE
+specifying a user or group and their allowed/denied operations.
+o ACL Mask: An ACL mask defines the maximum permissions that can be granted to
+named users, named groups, and the owning group, ensuring compatibility with
+applications that only understand traditional permissions.
+o Default ACLs: These can be set on a directory to ensure that new files and
+subdirectories created within it automatically inherit specific ACL entries.
+o Inheritance: In some systems like Windows, ACLs have robust inheritance features,
+while in Linux, default ACLs are used for new items.
+• Commands (Linux): The primary command-line tools for managing POSIX ACLs
+are getfacl and setfacl.
+o getfacl [filename]: Displays the ACLs for a file or directory. A file with an ACL will
+have a + symbol at the end of its permission string when using ls -l.
+o setfacl -m u:[user]:[permissions] [filename]: Modifies the ACL to grant specific
+permissions to a named user.
+o setfacl -x u:[user] [filename]: Removes a specific user's ACL entry.
+o setfacl -b [filename]: Removes all extended ACL entries.
+o setfacl -d -m g:[group]:[permissions] [directory]: Sets a default ACL for a directory.
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+File permissions and ACLs were implemented successfully.
+EX.NO : 07
+Monitoring and management of Linux system processes and
+DATE resources :
+AIM
+ To monitor system processes and resource usage.
+Procedure
+1. Display running processes.
+2. Monitor CPU and memory usage.
+3. Terminate a process.
 
-Write a program to calculate student total marks, average, percentage, and marks needed to reach 90%.
+.
+Core Commands
+1. Process Monitoring (Real-Time & Snapshots)
+• top: The standard real-time tool for viewing processes, CPU usage, and memory.
+Press Shift+P to sort by CPU usage.
+• htop: A modern, interactive upgrade to top with a color-coded interface and mouse support.
+• ps: Provides a static snapshot of current processes. Use ps aux to see all running processes
+across all users.
+• pstree: Displays processes in a tree-like hierarchy to show parent-child relationships.
+• pgrep: Searches for processes by name and returns their Process IDs (PIDs).
+2. Process Management (Signals & Priority)
+• kill: Terminates a process by its PID. kill -9 <PID> sends a SIGKILL to force termination.
+• pkill / killall: Terminates processes by name rather than PID.
+• nice: Starts a new process with a specific priority (niceness). Values range from -20 (highest
+priority) to 19 (lowest).
+• renice: Changes the priority of an already running process.
+3. Resource-Specific Monitoring
+• Memory: free -h shows a summary of physical and swap memory in human-readable format.
+• Disk I/O: iostat -xz 1 monitors disk throughput and performance, while iotop identifies
+specific processes hogging disk bandwidth.
+• Network: ss -tuln (modern replacement for netstat) displays active listening ports and
+connections.
+• Overall System Stats: vmstat 1 reports on virtual memory, CPU activity, and system calls
+every second.
+4. Background & Job Control
+• command &: Runs a command immediately in the background.
+• jobs: Lists background jobs in the current shell session.
+• fg %<job_id>: Brings a background or stopped job to the foreground.
+• bg %<job_id>: Resumes a suspended job in the background.
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+System processes and resources were monitored and managed successfully.
+EX.NO : 08
+Configuration and securing of OpenSSH for remote access
+DATE :
+AIM
+To configure and secure OpenSSH service.
+Procedure
+1. Install OpenSSH.
+2. Start SSH service.
+3. Secure SSH configuration.
+Commands
+sudo apt install openssh-server
+sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo nano /etc/ssh/sshd_config
+.
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ OpenSSH was configured and secured successfully.
+EX.NO : 09
+Implementation of basic Shell Programming logic: a. Interactive
+scripts with user input b. Handling positional parameters c.
+Arithmetic operations d. Conditional statements (if-then-else,
+nested if) e. Logical operators and complex conditions f. Multi-way
+branching using elif and case structures g. Iterative constructs using
+while and for loops h. Use of shell meta characters and globbing
+DATE :
+AIM
+ To implement basic shell programming constructs.
 
-Algorithm
-Input student name and marks in 5 subjects
-Compute total and average
-Compute percentage
-Compute marks needed for 90% target
-Display results
-Code
-name = input("Enter Student Name: ")
-marks = []
+.
+Core Commands
+a. Interactive Scripts with User Input
+Use read to take input from the user.
+#!/bin/bash
+echo "Enter your name:"
+read name
+echo "Welcome, $name"
+b. Handling Positional Parameters
+Command-line arguments are accessed using $1, $2, $3, ...
+#!/bin/bash
+echo "First argument: $1"
+echo "Second argument: $2"
+echo "Total arguments: $#"
+echo "All arguments: $@"
+Run as:
+./script.sh Linux Shell
+c. Arithmetic Operations
+Using expr:
+a=10
+b=5
+sum=`expr $a + $b`
+echo "Sum = $sum"
+Using double parentheses (recommended):
+a=10
+b=5
+echo "Difference = $((a - b))"
+echo "Product = $((a * b))"
+d. Conditional Statements (if–then–else, Nested if)
+Simple if–else
+if [ $a -gt $b ]
+then
+ echo "a is greater"
+else
+ echo "b is greater"
+fi
+Nested if
+if [ $a -gt 0 ]
+then
+ if [ $a -lt 100 ]
+ then
+ echo "a is between 1 and 99"
+ fi
+fi
+e. Logical Operators and Complex Conditions
+Logical operators:
+• AND → -a or &&
+• OR → -o or ||
+• NOT → !
+if [ $a -gt 0 ] && [ $b -gt 0 ]
+then
+ echo "Both numbers are positive"
+fi
+if [ $a -lt 0 ] || [ $b -lt 0 ]
+then
+ echo "At least one number is negative"
+fi
+f. Multi-way Branching Using elif and case
+Using elif
+if [ $marks -ge 90 ]
+then
+ echo "Grade A"
+elif [ $marks -ge 75 ]
+then
+ echo "Grade B"
+elif [ $marks -ge 60 ]
+then
+ echo "Grade C"
+else
+ echo "Fail"
+fi
+Using case
+#!/bin/bash
+echo "Enter a choice:"
+read ch
+case $ch in
+ 1) echo "You chose One" ;;
+ 2) echo "You chose Two" ;;
+ 3) echo "You chose Three" ;;
+ *) echo "Invalid choice" ;;
+esac
+g. Iterative Constructs Using while and for Loops
+while loop
+i=1
+while [ $i -le 5 ]
+do
+ echo "Count: $i"
+ i=$((i+1))
+done
+for loop
+for i in 1 2 3 4 5
+do
+ echo "Number: $i"
+done
+For loop with range
+for i in {1..5}
+do
+ echo "Value: $i"
+done
+h. Use of Shell Meta Characters and Globbing
+Common Meta Characters
+Character Meaning
+* Matches any number of characters
+? Matches exactly one character
+[] Matches a range or set
+> Output redirection
+< Input redirection
+` `
+Examples of Globbing
+ls *.txt # All text files
+ls file?.sh # file1.sh, file2.sh
+ls [a-c]* # Files starting with a, b, or c
+Redirection & Pipe
+ls > files.txt
+cat files.txt | grep ".sh"
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Shell programming concepts were implemented successfully.
+EX.NO : 10
+Development of a shell script to display specific line ranges from a
+DATE : given file
+AIM
+ To display specific line ranges from a given file using a shell script.
+Procedure
+A shell script to display specific line ranges from a file can be developed using standard Unix/Linux
+command-line utilities such as sed, awk, or head and tail.
+Here are three methods:
+Method 1: Using sed (Recommended for simple line ranges)
+The sed command uses the syntax sed -n 'start_line,end_linep' filename to print (the p flag) only the
+lines within the specified range (the -n option suppresses default output).
+bash
+#!/bin/bash
+# Check if file, start, and end lines are provided
+if [ "$#" -ne 3 ]; then
+ echo "Usage: $0 <filename> <start_line> <end_line>"
+ exit 1
+fi
+FILE="$1"
+START="$2"
+END="$3"
+# Check if the file exists
+if [ ! -f "$FILE" ]; then
+ echo "Error: File not found - $FILE"
+ exit 1
+fi
+echo "--- Displaying lines $START to $END from $FILE ---"
+# The 'p' command prints the selected lines
+sed -n "${START},${END}p" "$FILE"
+Method 2: Using awk (Good for flexible logic)
+The awk command can check the current line number (NR) against the specified range.
+bash
+#!/bin/bash
+# Check if file, start, and end lines are provided
+if [ "$#" -ne 3 ]; then
+ echo "Usage: $0 <filename> <start_line> <end_line>"
+ exit 1
+fi
+FILE="$1"
+START="$2"
+END="$3"
+# Check if the file exists
+if [ ! -f "$FILE" ]; then
+ echo "Error: File not found - $FILE"
+ exit 1
+fi
+echo "--- Displaying lines $START to $END from $FILE ---"
+# The condition '(NR >= START) && (NR <= END)' prints lines in range
+awk -v start="$START" -v end="$END" 'NR >= start && NR <= end' "$FILE"
+Method 3: Using head and tail (Best if only the end of the range is needed)
+This method first uses head to get the first end_line lines, and then uses tail to select the
+last (end_line - start_line) + 1 lines from that subset.
+bash
+#!/bin/bash
+# Check if file, start, and end lines are provided
+if [ "$#" -ne 3 ]; then
+ echo "Usage: $0 <filename> <start_line> <end_line>"
+ exit 1
+fi
+FILE="$1"
+START="$2"
+END="$3"
+LINES_TO_DISPLAY=$((END - START + 1))
+# Check if the file exists
+if [ ! -f "$FILE" ]; then
+ echo "Error: File not found - $FILE"
+ exit 1
+fi
+echo "--- Displaying lines $START to $END from $FILE ---"
+# Pipe the output of head to tail
+head -n "$END" "$FILE" | tail -n "$LINES_TO_DISPLAY"
+How to Use the Scripts:
+1. Save one of the scripts above as a file (e.g., display_range.sh).
+2. Make it executable from your terminal:
+bash
+chmod +x display_range.sh
+3. Run it, providing the filename, start line, and end line as arguments:
+bash
+./display_range.sh your_file.txt 10 25
+.
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Specified line range was displayed successfully.
+EX.NO : 11
+Creation of a shell script to delete lines containing specific patterns
+DATE across multiple files :
+AIM
+ To delete lines containing a specific pattern from multiple files.
 
-for i in range(1, 6):
-    m = float(input(f"Enter marks in subject {i}: "))
-    marks.append(m)
-
-total = sum(marks)
-average = total / 5
-percentage = (total / 500) * 100
-target_marks = 0.90 * 500
-needed = target_marks - total
-
-print("\n------ STUDENT REPORT ------")
-print(f"Student Name     : {name}")
-print(f"Total Marks      : {total:.2f}/500")
-print(f"Average Marks    : {average:.2f}")
-print(f"Percentage       : {percentage:.2f}%")
-
-if needed > 0:
-    print(f"Marks needed for 90%: {needed:.2f}")
-else:
-    print("Already achieved 90% target!")
-print("---------------------------")
-Sample Output
-Enter Student Name: Arun
-Enter marks in subject 1: 80
-Enter marks in subject 2: 70
-Enter marks in subject 3: 75
-Enter marks in subject 4: 85
-Enter marks in subject 5: 90
-
------- STUDENT REPORT ------
-Student Name     : Arun
-Total Marks      : 400.00/500
-Average Marks    : 80.00
-Percentage       : 80.00%
-Marks needed for 90%: 50.00
----------------------------
+To create a shell script that deletes all lines containing a specified pattern from multiple files in
+a given directory.
+Procedure
+1. Open the Linux terminal.
+2. Create multiple text files containing sample data.
+3. Write a shell script that:
+o Accepts a pattern from the user.
+o Applies the deletion operation to all text files.
+4. Use stream editor (sed) to remove lines containing the pattern.
+5. Execute the script and verify the updated files.
+Shell Script
+#!/bin/bash
+read -p "Enter the pattern to delete: " pattern
+echo "Deleting lines containing '$pattern' from all .txt files..."
+sed -i "/$pattern/d" *.txt
+echo "Operation completed."
+Commands to Execute
+chmod +x delete_pattern.sh
+./delete_pattern.sh
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Lines containing the specified pattern were deleted successfully.
+EX.NO : 12
+Scripting to identify and list files with specific read, write, and
+DATE execute permissions :
+AIM
+To develop a shell script that identifies and lists files having specific read (r), write (w), and execute (x)
+permissions for the user.
+Procedure
+1. Open the Linux terminal.
+2. Create a shell script file using a text editor.
+3. Accept a directory name as input from the user.
+4. Check each file in the directory for read, write, and execute permissions.
+5. Display files matching the required permission criteria.
+6. Execute the script and verify the output.
+Shell Script
+#!/bin/bash
+read -p "Enter directory path: " dir
+if [ ! -d "$dir" ]; then
+ echo "Invalid directory"
+ exit 1
+fi
+echo "Files with Read, Write, and Execute permissions:"
+for file in "$dir"/*
+do
+ if [ -f "$file" ]; then
+ if [ -r "$file" ] && [ -w "$file" ] && [ -x "$file" ]; then
+ echo "$(basename "$file")"
+ fi
+ fi
+done
+Commands to Execute
+chmod +x permission_check.sh
+./permission_check.sh
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ The shell script successfully identified and listed files that have read, write, and execute permissions for
+the user in the specified directory.
+EX.NO : 13
+Advanced file handling and directory management: a. Automating
+file creation in specific directory paths ($USER/class/ batch). b.
+Copying and managing page profiles. c. Identifying and printing
+differences between files. d. Pattern matching and extraction using
+grep/sed.
+DATE :
+AIM
+ To perform advanced file handling and directory management operations in Linux, including automated
+directory creation, file copying, file comparison, and pattern matching using standard command-line utilities.
+a) Automating File Creation in Specific Directory Paths ($USER/class/batch)
+Procedure
+1. Use environment variables to identify the current user.
+2. Create nested directories automatically.
+3. Create files inside the specified path.
+Shell Script
+#!/bin/bash
+BASE="/home/$USER/class/batch"
+mkdir -p "$BASE"
+touch "$BASE"/file{1..5}.txt
+echo "Directories and files created successfully at $BASE"
 Result
-
-Thus student performance is calculated with total, percentage and target marks required.
-
-✅ 2(A) ATM Withdrawal Simulator
-Problem Statement
-
-Create a menu-driven ATM program to withdraw money, check balance, and exit.
-
-Algorithm
-Input name and initial balance
-Display menu repeatedly using while loop
-Withdraw if sufficient balance
-Show balance
-Exit and print final balance
-Code
-name = input("Enter Account Holder Name: ")
-balance = float(input("Enter Initial Balance: "))
-
-while True:
-    print("\n----- ATM MENU -----")
-    print("1. Withdraw Money")
-    print("2. Check Balance")
-    print("3. Exit")
-
-    choice = int(input("Enter choice: "))
-
-    if choice == 1:
-        amt = float(input("Enter withdrawal amount: "))
-        if amt > balance:
-            print("Insufficient Balance!")
-        else:
-            balance -= amt
-            print(f"Withdrawal successful. Remaining Balance: ₹{balance:.2f}")
-
-    elif choice == 2:
-        print(f"Current Balance: ₹{balance:.2f}")
-
-    elif choice == 3:
-        print("Thank you for using ATM!")
-        break
-
-    else:
-        print("Invalid Choice!")
-
-print(f"Final Balance: ₹{balance:.2f}")
-Sample Output
-Enter Account Holder Name: Rahul
-Enter Initial Balance: 5000
-
------ ATM MENU -----
-1. Withdraw Money
-2. Check Balance
-3. Exit
-Enter choice: 1
-Enter withdrawal amount: 2000
-Withdrawal successful. Remaining Balance: ₹3000.00
-
-Enter choice: 3
-Thank you for using ATM!
-Final Balance: ₹3000.00
+The directory path $USER/class/batch was created automatically and files were generated successfully.
+b) Copying and Managing Page Profiles
+(Assuming page profiles as configuration/profile files)
+Procedure
+1. Create a directory for profile backups.
+2. Copy profile files while preserving permissions.
+Commands
+mkdir -p ~/profile_backup
+cp -p ~/.bashrc ~/.profile ~/profile_backup/
+ls -l ~/profile_backup
 Result
-
-Thus the ATM simulator performs withdrawal and balance checking using loops and conditions.
-
-✅ 2(B) Smart Attendance Analyzer
-Problem Statement
-
-Create a program to check exam eligibility based on 75% attendance.
-
-Algorithm
-Input name and total classes
-Use loop to record P/A
-Count present classes
-Compute percentage
-Display eligibility
-Code
-name = input("Enter Student Name: ")
-total_classes = int(input("Enter Total Classes Conducted: "))
-
-present = 0
-
-for i in range(1, total_classes + 1):
-    status = input(f"Class {i} (P/A): ").upper()
-    if status == "P":
-        present += 1
-
-percentage = (present / total_classes) * 100
-
-print("\n------ ATTENDANCE REPORT ------")
-print(f"Student Name: {name}")
-print(f"Total Classes: {total_classes}")
-print(f"Classes Attended: {present}")
-print(f"Attendance Percentage: {percentage:.2f}%")
-
-if percentage < 75:
-    print("Status: Not Eligible for Exam")
-else:
-    print("Status: Eligible for Exam")
-print("-------------------------------")
-Sample Output
-Enter Student Name: Meena
-Enter Total Classes Conducted: 5
-Class 1 (P/A): P
-Class 2 (P/A): A
-Class 3 (P/A): P
-Class 4 (P/A): P
-Class 5 (P/A): P
-
-Attendance Percentage: 80.00%
-Status: Eligible for Exam
+Page/profile configuration files were copied and preserved successfully.
+c) Identifying and Printing Differences Between Files
+Procedure
+1. Create two files with slight content variations.
+2. Use diff to identify differences.
+Commands
+diff file1.txt file2.txt
+diff -u file1.txt file2.txt
 Result
+Differences between the files were identified and displayed successfully.
+d) Pattern Matching and Extraction Using grep and sed
+Procedure
+1. Search for specific patterns in a file using grep.
+2. Extract or modify matching content using sed.
+Commands
+grep "error" logfile.txt
+grep -n "warning" logfile.txt
+sed -n '/error/p' logfile.txt
+sed 's/Linux/UNIX/g' sample.txt
 
-Thus the program checks eligibility using loops and attendance calculation.
-
-✅ 2(C) Prime Number Analysis Tool
-Problem Statement
-
-Develop a program to display all prime numbers in a range and compute count and average.
-
-Algorithm
-Input start and end
-For each number, check divisibility
-Print primes
-Count primes
-Compute average
-Code
-start = int(input("Enter Starting Number: "))
-end = int(input("Enter Ending Number: "))
-
-prime_list = []
-
-for num in range(start, end + 1):
-    if num > 1:
-        is_prime = True
-        for i in range(2, num):
-            if num % i == 0:
-                is_prime = False
-                break
-        if is_prime:
-            prime_list.append(num)
-
-print("\nPrime Numbers:", prime_list)
-print("Total Prime Numbers:", len(prime_list))
-
-if len(prime_list) > 0:
-    avg = sum(prime_list) / len(prime_list)
-    print(f"Average of Prime Numbers: {avg:.2f}")
-else:
-    print("No prime numbers found.")
-Sample Output
-Enter Starting Number: 10
-Enter Ending Number: 30
-
-Prime Numbers: [11, 13, 17, 19, 23, 29]
-Total Prime Numbers: 6
-Average of Prime Numbers: 18.67
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ Pattern matching and extraction were performed successfully using grep and sed.
+EX.NO : 14
+System utility scripting: a. Reporting the current count of logged-in
+users. b. Generating column-formatted file listings. c. Managing job
+priorities (nice/renice). d. Implementing persistent background
+tasks (nohup/disown).
+DATE :
+AIM
+To develop and execute shell scripts for system utility operations such as monitoring logged-in users,
+generating formatted file listings, managing job priorities, and running persistent background tasks in Linux.
+a) Reporting the Current Count of Logged-in Users
+Procedure
+1. Use system utilities to list active user sessions.
+2. Count the number of logged-in users.
+3. Display the result.
+Shell Script
+#!/bin/bash
+count=$(who | wc -l)
+echo "Current number of logged-in users: $count"
 Result
-
-Thus the tool identifies primes, counts them, and calculates average.
-
-✅ 3(A) E-Commerce Shopping Cart Manager
-Problem Statement
-
-Create a cart system allowing add/remove/view items using list, tuple, and set.
-
-Algorithm
-Create empty list
-Menu for add/remove/view
-Use set to remove duplicates
-Display final cart
-Code
-cart = []
-price_category = ("Low", "Medium", "High")
-
-while True:
-    print("\n1.Add Item  2.Remove Item  3.View Cart  4.Exit")
-    choice = int(input("Enter choice: "))
-
-    if choice == 1:
-        item = input("Enter product name: ")
-        cart.append(item)
-
-    elif choice == 2:
-        item = input("Enter item to remove: ")
-        if item in cart:
-            cart.remove(item)
-        else:
-            print("Item not found!")
-
-    elif choice == 3:
-        print("Cart Items:", cart)
-
-    elif choice == 4:
-        break
-
-    else:
-        print("Invalid choice!")
-
-final_cart = list(set(cart))
-print("\nFinal Cart Items (No Duplicates):", final_cart)
-print("Price Categories:", price_category)
-Sample Output
-Final Cart Items (No Duplicates): ['Laptop', 'Shoes']
-Price Categories: ('Low', 'Medium', 'High')
+The script successfully displayed the current number of logged-in users.
+b) Generating Column-Formatted File Listings
+Procedure
+1. List files in the current directory.
+2. Format the output into neat columns.
+3. Display file name, size, and permissions.
+Commands
+ls -l | column -t
+Alternative Script
+#!/bin/bash
+ls -lh | column -t
 Result
-
-Thus shopping cart operations are performed using list, set, and tuple.
-
-✅ 3(B) University Club Membership Analyzer
-Problem Statement
-
-Write a program to analyze membership of Coding and Robotics clubs using sets.
-
-Algorithm
-Input coding members into set
-Input robotics members into set
-Find intersection and differences
-Store meeting times in tuple
-Code
-coding = set(input("Enter Coding Club members (comma separated): ").split(","))
-robotics = set(input("Enter Robotics Club members (comma separated): ").split(","))
-
-both = coding & robotics
-only_coding = coding - robotics
-only_robotics = robotics - coding
-
-meeting_times = ("Monday 5PM", "Wednesday 4PM")
-
-print("\nStudents in Both Clubs:", both)
-print("Only Coding Club:", only_coding)
-print("Only Robotics Club:", only_robotics)
-print("Meeting Times:", meeting_times)
-Sample Output
-Students in Both Clubs: {'Ravi'}
-Only Coding Club: {'Anu'}
-Only Robotics Club: {'Kiran'}
-Meeting Times: ('Monday 5PM', 'Wednesday 4PM')
+File listings were displayed in well-aligned column format.
+c) Managing Job Priorities (nice and renice)
+Procedure
+1. Start a process with a specific priority using nice.
+2. Change the priority of a running process using renice.
+3. Verify the priority.
+Commands
+nice -n 10 sleep 300 &
+ps -o pid,ni,cmd
+renice -n 5 -p <PID>
 Result
+Process priorities were successfully assigned and modified.
+d) Implementing Persistent Background Tasks (nohup / disown)
+Procedure
+1. Run a command in the background.
+2. Ensure it continues after terminal logout.
+3. Verify output logging.
+Commands
+nohup ./script.sh > output.log 2>&1 &
+disown
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+EX.NO : 15
+Development of a shell-based database application for student
+DATE record management (View, Add, Delete) :
+AIM
+
+Procedure
+To develop a shell-based database application for managing student records with basic operations
+such as Add, View, and Delete using Linux shell scripting.
+Procedure
+1. Create a text file to act as a database for storing student records.
+2. Write a shell script that displays a menu-driven interface.
+3. Implement options to:
+o Add a new student record.
+o View all existing student records.
+o Delete a student record based on roll number.
+4. Use standard Linux utilities like echo, read, grep, and sed.
+5. Execute the script and verify all operations.
+Database File Format
+Each record is stored in the format:
+RollNo | Name | Department | Year
+Example:
+101 | Ravi | CSE | 2
+Shell Script
+#!/bin/bash
+DB="student_db.txt"
+touch "$DB"
+while true
+do
+ echo "-----------------------------------"
+ echo " Student Record Management System "
+ echo "-----------------------------------"
+ echo "1. Add Student Record"
+ echo "2. View Student Records"
+ echo "3. Delete Student Record"
+ echo "4. Exit"
+ echo "-----------------------------------"
+ read -p "Enter your choice: " choice
+ case $choice in
+ 1)
+ read -p "Enter Roll Number: " roll
+ read -p "Enter Name: " name
+ read -p "Enter Department: " dept
+ read -p "Enter Year: " year
+ echo "$roll | $name | $dept | $year" >> "$DB"
+ echo "Record added successfully."
+ ;;
+ 2)
+ if [ ! -s "$DB" ]; then
+ echo "No records found."
+ else
+ echo "Student Records:"
+ echo "----------------------------"
+ column -t -s "|" "$DB"
+ fi
+ ;;
+ 3)
+ read -p "Enter Roll Number to delete: " roll
+ if grep -q "^$roll" "$DB"; then
+ sed -i "/^$roll/d" "$DB"
+ echo "Record deleted successfully."
+ else
+ echo "Record not found."
+ fi
+ ;;
+ 4)
+ echo "Exiting application."
+ exit 0
+ ;;
+ *)
+ echo "Invalid choice. Try again."
+ ;;
+ esac
+done
+Commands to Execute
+chmod +x student_db.sh
+./student_db.sh
+Aim & Procedure
+System Requirements
+Code & Logic
+Execution & Result
+Viva
+Total
+RESULT
+ The shell-based database application was successfully developed and executed. Student records were
+added, viewed, and deleted correctly using a menu-driven interface.
 
-Thus set operations successfully identify club membership patterns.
-
-✅ 3(C) Inventory Tracking System
-Problem Statement
-
-Develop a warehouse inventory system using list, tuple and set.
-
-Algorithm
-Store products in list
-Store suppliers in tuples
-Convert suppliers to set for uniqueness
-Sort products and display
-Code
-products = ["Mouse", "Keyboard", "Monitor", "Mouse"]
-suppliers = [("ABC Traders", "Chennai"), ("XYZ Pvt Ltd", "Delhi"), ("ABC Traders", "Chennai")]
-
-supplier_names = set([s[0] for s in suppliers])
-
-products.sort()
-
-print("Sorted Products:", products)
-print("Unique Suppliers:", supplier_names)
-Sample Output
-Sorted Products: ['Keyboard', 'Monitor', 'Mouse', 'Mouse']
-Unique Suppliers: {'XYZ Pvt Ltd', 'ABC Traders'}
-Result
-
-Thus inventory is displayed in sorted order and duplicate suppliers are removed.
-
-✅ 4(A) Student Information Management System
-Problem Statement
-
-Create a student record system using dictionary with add, update, delete, search.
-
-Algorithm
-Store student details in dictionary
-Menu operations
-Display students above 80
-Code
-students = {}
-
-while True:
-    print("\n1.Add 2.Update 3.Delete 4.Search 5.Above 80 6.Exit")
-    ch = int(input("Enter choice: "))
-
-    if ch == 1:
-        sid = int(input("Enter ID: "))
-        name = input("Enter Name: ")
-        marks = float(input("Enter Marks: "))
-        students[sid] = {"name": name, "marks": marks}
-
-    elif ch == 2:
-        sid = int(input("Enter ID to update: "))
-        if sid in students:
-            students[sid]["marks"] = float(input("Enter new marks: "))
-
-    elif ch == 3:
-        sid = int(input("Enter ID to delete: "))
-        students.pop(sid, None)
-
-    elif ch == 4:
-        sid = int(input("Enter ID to search: "))
-        print(students.get(sid, "Record Not Found"))
-
-    elif ch == 5:
-        for sid, data in students.items():
-            if data["marks"] > 80:
-                print(sid, data)
-
-    elif ch == 6:
-        break
-Sample Output
-1.Add 2.Update 3.Delete 4.Search 5.Above 80 6.Exit
-Enter choice: 5
-101 {'name': 'Arun', 'marks': 85.0}
-Result
-
-Thus dictionary operations successfully manage student records.
-
-✅ 4(B) Online Store Product Catalog
-Problem Statement
-
-Create product catalog using dictionary with add/update/remove and total value.
-
-Algorithm
-Store products in dictionary
-Perform add/update/delete
-Compute total value
-Code
-catalog = {}
-
-while True:
-    print("\n1.Add 2.Update 3.Remove 4.Total Value 5.Exit")
-    ch = int(input("Enter choice: "))
-
-    if ch == 1:
-        name = input("Enter product name: ")
-        price = float(input("Enter price: "))
-        catalog[name] = price
-
-    elif ch == 2:
-        name = input("Enter product name: ")
-        if name in catalog:
-            catalog[name] = float(input("Enter new price: "))
-
-    elif ch == 3:
-        name = input("Enter product name: ")
-        catalog.pop(name, None)
-
-    elif ch == 4:
-        total = sum(catalog.values())
-        print("Total Catalog Value:", total)
-
-    elif ch == 5:
-        break
-Sample Output
-Total Catalog Value: 4500.0
-Result
-
-Thus the product catalog is maintained using dictionary operations.
-
-✅ 4(C) City Temperature Monitoring System
-Problem Statement
-
-Develop a program to monitor city temperatures and find hottest, coldest and average.
-
-Algorithm
-Store city-temperature pairs in dictionary
-Use max and min functions
-Compute average temperature
-Allow updates
-Code
-temps = {"Chennai": 35, "Delhi": 40, "Mumbai": 32}
-
-hottest = max(temps, key=temps.get)
-coldest = min(temps, key=temps.get)
-
-avg_temp = sum(temps.values()) / len(temps)
-
-print("Hottest City:", hottest, temps[hottest])
-print("Coldest City:", coldest, temps[coldest])
-print(f"Average Temperature: {avg_temp:.2f}")
-Sample Output
-Hottest City: Delhi 40
-Coldest City: Mumbai 32
-Average Temperature: 35.67
-Result
-
-Thus the program finds hottest, coldest and average temperature using dictionary traversal.
-
-✅ 5(A) Secure Login Validation System
-Problem Statement
-
-Create a login system validating password length and digit using exception handling.
-
-Algorithm
-Input username and password
-Check length >= 8
-Check digit exists
-Use try-except
-Mask password
-Code
-try:
-    username = input("Enter Username: ")
-    password = input("Enter Password: ")
-
-    if len(password) < 8:
-        raise ValueError("Password must be at least 8 characters.")
-
-    if not any(ch.isdigit() for ch in password):
-        raise ValueError("Password must contain at least one digit.")
-
-    masked = "*" * len(password)
-
-    print("Login Successful!")
-    print("Masked Password:", masked)
-
-except ValueError as e:
-    print("Login Failed:", e)
-Sample Output
-Enter Username: admin
-Enter Password: admin123
-Login Successful!
-Masked Password: ********
-Result
-
-Thus the login system validates password rules using exception handling.
-
-✅ 5(B) Email Address Validator
-Problem Statement
-
-Develop a program to validate email format and extract username and domain.
-
-Algorithm
-Input email
-Check @ and .com
-Split into username and domain
-Handle invalid using exception
-Code
-try:
-    email = input("Enter Email: ")
-
-    if "@" not in email or ".com" not in email:
-        raise ValueError("Invalid Email Format")
-
-    username, domain = email.split("@")
-
-    print("Valid Email!")
-    print("Username:", username)
-    print("Domain:", domain)
-
-except ValueError as e:
-    print("Error:", e)
-Sample Output
-Enter Email: ravi@gmail.com
-Valid Email!
-Username: ravi
-Domain: gmail.com
-Result
-
-Thus the program validates email and extracts components.
-
-✅ 5(C) Text Analyzer for Article Processing
-Problem Statement
-
-Create a program to analyze paragraph text and compute word, character, sentence counts.
-
-Algorithm
-Input paragraph
-Count words using split
-Count characters using len
-Count sentences using '.'
-Convert to upper/lower
-Replace Python with PY
-Code
-text = input("Enter Paragraph: ")
-
-words = len(text.split())
-chars = len(text)
-sentences = text.count(".")
-
-print("Word Count:", words)
-print("Character Count:", chars)
-print("Sentence Count:", sentences)
-
-print("Uppercase:", text.upper())
-print("Lowercase:", text.lower())
-print("Replaced Text:", text.replace("Python", "PY"))
-Sample Output
-Word Count: 6
-Character Count: 30
-Sentence Count: 1
-Result
-
-Thus the text analyzer gives quick statistics and performs string operations.
-
-✅ 6(A) Library Fine Calculator System
-Problem Statement
-
-Write a function to calculate fine based on overdue days.
-
-Algorithm
-Input overdue days
-If <=5 fine = days×2
-If <=10 fine = 5×2 + (days-5)×5
-Else fine = 5×2 + 5×5 + (days-10)×10
-Display fine
-Code
-def calculate_fine(days):
-    if days <= 5:
-        return days * 2
-    elif days <= 10:
-        return (5 * 2) + (days - 5) * 5
-    else:
-        return (5 * 2) + (5 * 5) + (days - 10) * 10
-
-days = int(input("Enter overdue days: "))
-fine = calculate_fine(days)
-
-print("Total Fine Amount: ₹", fine)
-Sample Output
-Enter overdue days: 12
-Total Fine Amount: ₹ 55
-Result
-
-Thus the program calculates fine using user-defined functions and conditions.
-
-✅ 6(B) Factorial-Based Password Strength Checker
-Problem Statement
-
-Create a program using recursion to calculate factorial and classify password strength.
-
-Algorithm
-Recursive factorial(n)
-Input password length
-Compute factorial
-Classify Weak/Medium/Strong
-Display result
-Code
-def factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    return n * factorial(n - 1)
-
-def check_strength(length):
-    score = factorial(length)
-
-    if score < 100:
-        return "Weak"
-    elif score <= 10000:
-        return "Medium"
-    else:
-        return "Strong"
-
-length = int(input("Enter password length: "))
-strength = check_strength(length)
-
-print("Password Strength:", strength)
-Sample Output
-Enter password length: 6
-Password Strength: Medium
-Result
-
-Thus factorial recursion is used to determine password strength.
-
-✅ 6(C) Placement Eligibility Checker using GCD
-Problem Statement
-
-Write a recursive program to compute GCD and check number compatibility.
-
-Algorithm
-Use Euclidean recursion gcd(a,b)
-Input two numbers
-Compute gcd
-If gcd==1 compatible else not
-Display result
-Code
-def gcd(a, b):
-    if b == 0:
-        return a
-    return gcd(b, a % b)
-
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-
-g = gcd(a, b)
-
-print("GCD:", g)
-
-if g == 1:
-    print("Highly Compatible (Coprime Numbers)")
-else:
-    print("Not Fully Compatible")
-Sample Output
-Enter first number: 12
-Enter second number: 25
-GCD: 1
-Highly Compatible (Coprime Numbers)
-Result
-
-Thus GCD recursion determines compatibility between two integers.
-
-✅ 7(A) Bank Account Management System
-Problem Statement
-
-Create a BankAccount class to perform deposit, withdrawal, and display balance.
-
-Algorithm
-Define class with attributes
-Create methods deposit, withdraw, display_balance
-Create object and test operations
-Code
-class BankAccount:
-    def __init__(self, acc_no, name, balance):
-        self.account_number = acc_no
-        self.customer_name = name
-        self.balance = balance
-
-    def deposit(self, amount):
-        self.balance += amount
-
-    def withdraw(self, amount):
-        if amount > self.balance:
-            print("Insufficient Balance!")
-        else:
-            self.balance -= amount
-
-    def display_balance(self):
-        print("Current Balance:", self.balance)
-
-acc = BankAccount(101, "Ravi", 5000)
-acc.deposit(2000)
-acc.withdraw(1000)
-acc.display_balance()
-Sample Output
-Current Balance: 6000
-Result
-
-Thus class and object methods successfully perform banking operations.
-
-✅ 7(B) Product Inventory System
-Problem Statement
-
-Create a Product class using default and parameterized constructors.
-
-Algorithm
-Define class Product
-Create default + parameterized constructor
-Update stock, calculate value, display product
-Code
-class Product:
-    def __init__(self, product_name="None", price=0, quantity=0):
-        self.product_name = product_name
-        self.price = price
-        self.quantity = quantity
-
-    def update_stock(self, qty):
-        self.quantity += qty
-
-    def calculate_value(self):
-        return self.price * self.quantity
-
-    def display_product(self):
-        print("Product:", self.product_name)
-        print("Price:", self.price)
-        print("Quantity:", self.quantity)
-        print("Total Value:", self.calculate_value())
-
-p = Product("Laptop", 50000, 2)
-p.update_stock(3)
-p.display_product()
-Sample Output
-Product: Laptop
-Price: 50000
-Quantity: 5
-Total Value: 250000
-Result
-
-Thus constructors and methods manage product stock and calculate inventory value.
-
-✅ 7(C) Smart City Management System (Inheritance)
-Problem Statement
-
-Develop a Smart City system demonstrating hierarchical, multilevel, and multiple inheritance.
-
-Algorithm
-Create base class Person
-Create Citizen and Employee (hierarchical)
-Create Engineer (multilevel)
-Create SmartWorker (multiple inheritance)
-Display outputs
-Code
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
-    def display_person(self):
-        print("Name:", self.name)
-        print("Age:", self.age)
-
-    def is_adult(self):
-        return self.age >= 18
-
-    def greet(self):
-        print("Hello,", self.name)
-
-class Citizen(Person):
-    def __init__(self, name, age, city):
-        super().__init__(name, age)
-        self.city = city
-
-    def show_city(self):
-        print("City:", self.city)
-
-class Employee(Person):
-    def __init__(self, name, age, salary):
-        super().__init__(name, age)
-        self.salary = salary
-
-    def calculate_tax(self):
-        return self.salary * 0.1
-
-class Engineer(Employee):
-    def __init__(self, name, age, salary, department):
-        super().__init__(name, age, salary)
-        self.department = department
-
-    def show_department(self):
-        print("Department:", self.department)
-
-class SmartWorker(Citizen, Employee):
-    def __init__(self, name, age, city, salary):
-        Citizen.__init__(self, name, age, city)
-        self.salary = salary
-
-    def show_role(self):
-        print("Role: Citizen + Employee")
-
-sw = SmartWorker("Arun", 25, "Chennai", 50000)
-sw.display_person()
-sw.show_city()
-print("Tax:", sw.calculate_tax())
-sw.show_role()
-Sample Output
-Name: Arun
-Age: 25
-City: Chennai
-Tax: 5000.0
-Role: Citizen + Employee
-Result
-
-Thus the program demonstrates hierarchical, multilevel and multiple inheritance in Python.
-
+REFERENCES
+https://www.redhat.com/en/topics/linux/what-is-linux
 </pre>

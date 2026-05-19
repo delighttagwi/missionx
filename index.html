@@ -1,1092 +1,1855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Manual - Linux Fundamentals and Scripting</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --primary-light: #334155;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --code-bg: #0f141c;
+            --code-text: #e2e8f0;
+            --badge-bg: #eff6ff;
+            --badge-text: #1e40af;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<pre>
-Department of Computer Science and Engineering
-KPR Institute of Engineering and Technology
-B.E. – Computer Science and Engineering
-LABORATORY MANUAL
-U25SC202 – Linux Fundamentals and Scripting
-(Regulation 2025)
-KPR INSTITUTE OF ENGINEERING AND TECHNOLOGY
-(Autonomous)
-COIMBATORE – 641 407
-Name : ……………………………………………………………….
-Roll Number : ……………………………………………………………….
-Subject Code & Title : ……………………………………………………………….
-Department : ……………………………………………………………….
-Year & Semester : ……………………………………………………………….
-Certified that this is a bonafide of work done by the above student during the academic year 2025-2026.
-Faculty In- Charge Head of the Department
-He/ She hassubmitted the record for the End Semester Practical Examination held on ……
-Internal Examiner External Examiner
-LABORATORY Manual
-Vision of the Institution
-To become a premier institute of academic excellence by imparting technical,
-intellectual and professional skills to students for meeting the diverse needs of
-industry, society, the nation and the world at large
-Mission of the Institution
-1. Commitment to offer value-based education and enhancement of practical skills.
-2. Continuous assessment of teaching and learning processes through scholarly activities.
-3. Enriching research and innovation activities in collaboration with industry and
-institutes of repute.
-4. Ensuring the academic processes to uphold culture, ethics and social responsibilities.
-Vision of the Department
-To be a premier centre for education, dissemination of knowledge and research in the frontier
-areas of computer science and engineering to serve the community with moral values.
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
 
-Mission of the Department
-1. Provide holistic education incorporating the state-of-the-art technologies to produce
-successful professionals.
-2. Facilitate the students to pursue higher education and research in the areas related to
-Computer Science and Engineering.
-3. Promote strong collaborations with the industries and steer the students to nurture their
-interest in continuous learning to meet the changing needs of the society.
-RUBRICS FOR ASSESSMENT
-Criteria Excellent (4 Marks) Good (3 Marks) Adequate
-(2 Marks) Inadequate (1 Mark)
-A. Preparation
-& Observation
-Aim &
-Procedure
-Clearly defines the
-aim and follows a
-well-structured,
-detailed procedure;
-demonstrates
-complete
-understanding of steps
-involved.
-Definesthe aim with
-a mostly clear
-procedure;
-understandsthe steps
-with minor errors or
-omissions.
-Defines aim but
-lacks clarity in
-procedure;
-followssteps but
-missessome key
-details.
-Aim is unclear or
-procedure isincomplete,
-showing little
-understanding of
-experiment steps.
-Connection
-All components are
-connected accurately;
-demonstrates
-excellent
-understanding of
-circuit connections
-and pin
-configurations.
-Most components are
-connected accurately
-with only minor
-issuesin connections.
-Basic connections
-are made but with
-noticeable errors;
-partial
-understanding of
-connections.
-Connections are largely
-incorrect, with little
-understanding of circuit
-design.
-B. Results & Interpretation
-Code &
-Logic
-Code is logically
-structured, optimized,
-and well-commented;
-includes error
-handling and
-accurately addresses
-experiment
-requirements.
-Code followslogical
-structure and
-addresses most
-requirements;
-comments included
-but could be
-improved.
-Code isfunctional
-but lacksstructure
-or logic in parts;
-minimal
-comments and
-minor errors in
-addressing
-requirements.
-Code isincomplete, poorly
-structured, and does not
-meet experiment
-requirements; lacks
-comments.
-Execution &
-Result
-Experiment runs
-smoothly with
-expected resultsfully
-achieved; thoroughly
-documents and
-interpretsresults with
-relevant insights.
-Experiment runs with
-mostly expected
-results; documents
-results with some
-interpretation.
-Experiment runs
-partially but with
-unexpected
-results; minimal
-documentation or
-interpretation of
-results.
-Experiment does not run or
-results are incorrect; little
-to no documentation or
-understanding of results.
-C. Viva Voce
-Viva Voce
-Responds accurately
-and confidently to all
-questions,
-demonstrating a deep
-understanding of the
-experiment's theory
-and applications.
-Responds to most
-questions accurately,
-demonstrating a good
-understanding with
-minor gaps.
-Respondsto some
-questions but with
-limited accuracy;
-shows basic
-understanding of
-theory.
-Struggles to respond to
-questions, showing little
-understanding of the
-experiment's theory and
-purpose
-INDEX
-Ex.
-No.
-Date Experiment Name Page
-No.
-Marks Signature
-01 Installation and configuration of Red Hat
-Linux including an analysis of the booting
-process
-02 Navigation and exploration of the Linux
-Filesystem Hierarchy Standard (FHS)
-03 Mastering the Command Line Interface (CLI)
-and basic terminal operations
-04 File management operations using commandline utilities
-05 Administration of local user accounts and
-group memberships
-06 Implementation of file system permissions and
-access control lists (ACLs)
-07 Monitoring and management of Linux system
-processes and resources
-08 Configuration and securing of OpenSSH for
-remote access
-09 Implementation of basic Shell Programming
-logic:
-a. Interactive scripts with user input
-b. Handling positional parameters
-c. Arithmetic operations
-d. Conditional statements (if-then-else, nested
-if)
-e. Logical operators and complex conditions
-f. Multi-way branching using elif and case
-structures
-g. Iterative constructs using while and for loops
-h. Use of shell meta characters and globbing
-10 Development of a shell script to display
-specific line ranges from a given file
-11 Creation of a shell script to delete lines
-containing specific patterns across multiple
-files
-12 Scripting to identify and list files with specific
-read, write, and execute permissions
-13 Advanced file handling and directory
-management:
-a. Automating file creation in specific directory
-paths ($USER/class/ batch).
-b. Copying and managing page profiles.
-c. Identifying and printing differences between
-files.
-d. Pattern matching and extraction using
-grep/sed.
-14 System utility scripting: a. Reporting the
-current count of logged-in users.
-b. Generating column-formatted file listings.
-c. Managing job priorities (nice/renice).
-d. Implementing persistent background tasks
-(nohup/disown).
-15 Development of a shell-based database
-application for student record management
-(View, Add, Delete)
-EX.NO : 01
-INSTALLATION AND CONFIGURATION OF RED HAT
-LINUX INCLUDING AN ANALYSIS OF THE BOOTING
-PROCESS
-DATE :
-AIM
- To install and configure Red Hat Linux on a computer system and to analyze the Linux
-booting process, including the roles of BIOS/UEFI, bootloader, kernel, and system initialization.
+        /* Institutional Header styling */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
 
-Apparatus / Requirements
-• Computer system / Virtual Machine
-• Red Hat Enterprise Linux ISO
-• Bootable USB / VirtualBox
-• Minimum 4 GB RAM, 20 GB disk space
-Theory
-Linux is an open source operating system (OS) created in 1991 by Linus Torvalds. Today, thanks to
-its global community of enthusiasts, you can find it in all kinds of devices, from retail point-of-sale
-systems to the world's most powerful supercomputers.
-What is an operating system?
-An OS is the software that directly manages a system’s hardware and resources, like the CPU,
-memory, and storage. The OS sits between applications and hardware and makes the connections
-between all your software and the physical resources that do the work.
-Humans can interact with computers in many ways. Most people’s primary interaction with their
-hardware happens through an OS, which helps them access a computer’s core functions. There are
-lots of OS options, from proprietary software made by large companies to open source projects
-created and supported by volunteers.
-Think about an OS like a car engine. An engine can run on its own, but it becomes part of a
-functional car when it’s connected with a transmission, axles, and wheels. Without the engine
-running properly, the car won’t work.
-Procedure
-After booting the installation USB drive:
-1. Select Install Red Hat Enterprise Linux in the boot menu and press Enter.
-2. After Anaconda, the Red Hat Enterprise Linux installer, started, select your language and
-region, and click Continue.
-3. The Installation Summary is the central screen to set configuration options:
-You can display and modify the individual options in any order. If a configuration option was
-automatically configured correctly, no further action is required. However, if items are marked with
-an exclamation point icon, you must complete the configuration for these items before you can begin
-the installation.
-Note
-Nothing will be written to the disk until you click the Begin Installation button.
-4. Select Date & Time:
-i. Set your region and the nearest city in your time zone.
-ii. Click Done to return to the Installation Summary.
-5. Select Keyboard Layout:
-i. Use the + and - buttons to add and remove keyboard layouts.
-ii. If you enable multiple keyboard layouts, move your preferred layout to the top of the
-list using the ↑ button to set it as default.
-iii. Click Done to return to the Installation Summary.
-6. Select Installation Destination:
-i. Select the target disk. A check mark is displayed next to the selected target.
-The selected disk is partitioned automatically.
-ii. Click Done to return to the Installation Summary.
-7. Select Network and Hostname:
-i. Click the Ethernet sliding switch in the top right corner to enable the network
-configuration.
-ii. Optional, select the device and click Configure to update the network interface
-configuration.
-iii. Click Done to return to the Installation Summary.
-Note
-Anaconda applies the network settings immediately. They are used during the setup and after the
-installation.
-8. On the Installation Summary screen, click Begin Installation.
-9. The installation starts and the Configuration screen is displayed:
-During the installation:
-i. Select Root Password:
-i. Enter the password for the root user and confirm it.
-ii. Click Done to return to the Configuration screen.
-ii. Select User Creation:
-i. Enter the user's full name.
-ii. Optionally, update the automatically generated user name.
-iii. Set the password and confirm it.
-iv. Optionally, check the Make this user administrator check box. This will add
-the user to the wheel group and allow this account to use sudo without any
-further configuration.
-v. Click Done to return to the Configuration screen.
-iii. Wait until the installation completes and click Reboot.
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Red Hat Linux was successfully installed and configured. The system booted correctly using the
-GRUB bootloader, the kernel was loaded, and system services were initialized properly. The Linux
-booting process was analyzed and verified, ensuring stable and efficient system startup.
-6
-EX.NO : 02
-Navigation and exploration of the Linux Filesystem Hierarchy
-DATE Standard (FHS) :
-AIM
- To explore and understand the Linux Filesystem Hierarchy Standard (FHS) and navigate through
-important directories.
-Procedure
-1. Open the terminal.
-2. Display the root directory contents.
-3. Navigate through standard directories such as /bin, /etc, /home, /var.
-4. Identify the purpose of each directory.
-In Linux, these commands are used to navigate the file system and view its structure. Below is an
-explanation of each command and the specific directories mentioned.
-Core Commands
-• pwd (Print Working Directory): Displays the full absolute path of your current location.
-• ls (List): Shows the files and subdirectories within the current directory.
-• cd (Change Directory): Used to move from one directory to another.
-Directory Overview
-The directories mentioned are standard top-level folders in the Linux Filesystem Hierarchy Standard
-(FHS):
-• / (Root): The base of the entire file system; every other folder is located under this single
-slash.
-• /etc: Contains system-wide configuration files that control how programs and services
-behave.
-• /home: Houses the personal folders for individual users (e.g., /home/username), where they
-store personal files and settings.
-• /var (Variable): Stores data that changes frequently while the system is running, such as
-system logs, caches, and spool files.
-Sequential Breakdown of Your Input
-If you run these commands in sequence, you would be performing the following actions:
-1. pwd: See where you are starting (likely your user home).
-2. ls /: List everything at the very top of the system (root).
-3. cd /etc: Move into the configuration directory.
-4. ls: View the configuration files inside /etc.
-5. cd /home: Move into the user home parent directory.
-6. ls: See a list of all user account folders on the system.
-7. cd /var: Move into the variable data directory.
-8. ls: View log folders and other frequently changing system data
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Successfully navigated and understood the structure and purpose of major Linux FHS
-directories.
-EX.NO : 03
-Mastering the Command Line Interface (CLI) and basic terminal
-DATE operations :
-AIM
- To learn basic command-line operations in Linux using the terminal.
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-Procedure
-➢ Open terminal.
-➢ Execute basic commands like date, cal, whoami.
-➢ Use man command to view help pages.
-Core Commands
-The commands you listed are common Linux/Unix shell commands: date shows the current
-date/time, cal displays a calendar, whoami shows your username, man ls provides the manual for
-the ls (list files) command, and clear clears the terminal screen. Running these would provide
-information about the system's time, calendar, your identity, file listing details, and refresh your
-terminal view.
-Here's a breakdown of what each command does:
-• date: Displays the current date, time, and time zone.
-• cal: Shows a calendar, usually for the current month, with the current day highlighted; cal -
-y shows the whole year.
-• whoami: Prints your effective user ID (username) to the standard output.
-• man ls: Opens the manual page (documentation) for the ls command, explaining how to list
-files and directories, and its various options (like ls -l, ls -a, etc.).
-• clear: Clears all previous text from the terminal screen, leaving a clean prompt.
-Aim & understanding
-Procedure
-Correct commands
-Result
-Total
-RESULT
-Basic terminal operations were executed successfully.
-EX.NO : 04
-File management operations using command-line utilities
-DATE :
-AIM
-To perform file creation, copying, moving, renaming, and deletion using Linux commands
-Procedure
-➢ Create files and directories.
-➢ Copy and move files.
-➢ Delete files and directories.
- .
-Core Commands
+        header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .course-badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Main Content Container Layout */
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Dynamic Control and Navigation Deck */
+        .control-deck {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px;
+            padding-left: 45px;
+            font-size: 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        .search-container::before {
+            content: "🔍";
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--text-muted);
+        }
+
+        .status-bar {
+            margin-top: 12px;
+            font-size: 13.5px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        /* Experiment Cards Base Presentation styling */
+        .experiment-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .experiment-card:hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08);
+        }
+
+        .card-header {
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .exp-num {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .exp-title {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Section Block Structural Fields inside Card */
+        .section-block {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 13.5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section-content {
+            font-size: 15px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* Technical code blocks presentation layers */
+        .code-container {
+            margin-top: 8px;
+            background-color: var(--code-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        .code-header-bar {
+            background-color: #1e293b;
+            padding: 8px 16px;
+            font-size: 12px;
+            color: #94a3b8;
+            font-family: monospace;
+            border-bottom: 1px solid #0f172a;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 13.5px;
+            color: var(--code-text);
+            line-height: 1.5;
+        }
+
+        /* No Result UI display logic configuration wrapper */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Evaluation Score Matrix Table Layout */
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .rubric-table th, .rubric-table td {
+            border: 1px solid var(--border);
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        .rubric-table th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Highlighting optimization */
+        mark {
+            background-color: #fef08a;
+            color: #854d0e;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>KPR Institute of Engineering and Technology</h1>
+            <h2>Department of Computer Science and Engineering</h2>
+            <div class="course-badge">U25SC202 – Linux Fundamentals and Scripting (Regulation 2025)</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sticky Dynamic Real-Time Query Panel Layer -->
+        <section class="control-deck">
+            <div class="search-container">
+                <input type="text" id="manualSearchInput" class="search-input" placeholder="Search experiments by number, title, objective, command, or keywords..." autocomplete="off">
+            </div>
+            <div class="status-bar">
+                <span id="matchStatsCounter">Showing all available experiments</span>
+                <span>Academic Record Framework</span>
+            </div>
+        </section>
+
+        <!-- Dynamic Container Loop Target Blocks -->
+        <div id="experimentsWrapper">
+
+            <article class="experiment-card" id="exp-block-01" data-index="01">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 01</span>
+                    <h3 class="exp-title">Installation and configuration of Red Hat Linux including an analysis of the booting process</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To install and configure Red Hat Linux on a computer system and to analyze the Linux booting process, including the roles of BIOS/UEFI, bootloader, kernel, and system initialization.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Computer system / Virtual Machine, Red Hat Enterprise Linux ISO, Bootable USB / VirtualBox, Minimum 4 GB RAM, 20 GB disk space</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Linux is an open source operating system (OS) created in 1991 by Linus Torvalds. An OS is the software that directly manages a system’s hardware and resources, like the CPU, memory, and storage. The OS sits between applications and hardware and makes the connections between all your software and the physical resources that do the work.<br><br>The Linux Booting Process consists of several crucial phases:<br>1. <strong>BIOS/UEFI:</strong> Performs POST (Power-On Self-Test) and initializes hardware. It reads the MBR (Master Boot Record) or EFI System Partition to locate the bootloader.<br>2. <strong>Bootloader (GRUB2):</strong> Loads the Linux Kernel and initial RAM disk (initramfs) into memory.<br>3. <strong>Kernel:</strong> Initializes core hardware, mounts the root filesystem as read-only, and executes the first user-space process (`/sbin/init` or `systemd`).<br>4. <strong>System Initialization (systemd):</strong> Starts essential system services, target units (multi-user or graphical), and presents the login screen.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Select <em>Install Red Hat Enterprise Linux</em> in the boot menu and press Enter.<br>2. After Anaconda starts, select your language and region, and click Continue.<br>3. On the Installation Summary screen, configure Date & Time, Keyboard Layout, and Installation Destination (Automatic Partitioning).<br>4. Click <em>Network & Hostname</em>, toggle the Ethernet switch to connect to the network, and set a custom hostname.<br>5. Click <strong>Begin Installation</strong>.<br>6. While installing, set the <strong>Root Password</strong> and create a standard local user account under <strong>User Creation</strong> (optionally checking 'Make this user administrator').<br>7. Once installation finishes, click <strong>Reboot</strong> and log into your new environment.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Red Hat Linux was successfully installed and configured. The system booted correctly using the GRUB bootloader, the kernel was loaded, and system services were initialized properly. The Linux booting process was analyzed and verified, ensuring stable and efficient system startup.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-02" data-index="02">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 02</span>
+                    <h3 class="exp-title">Navigation and exploration of the Linux Filesystem Hierarchy Standard (FHS)</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To explore and understand the Linux Filesystem Hierarchy Standard (FHS) and navigate through important directories.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Terminal / Bash Shell</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">The Filesystem Hierarchy Standard (FHS) defines the structure of file systems and directories in Unix-like operating systems. It ensures compatibility and standard behavior across different Linux distributions by prescribing specific locations for binaries, configurations, home folders, and temporary files.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Open the terminal utility.<br>2. Issue the `pwd` command to identify your current location.<br>3. Execute `ls /` to list the system's root-level structure.<br>4. Change your working directory to `/etc` to view configurations, then move to `/home` and `/var` sequentially to observe changing system profiles and variables.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Print working directory
+pwd
+
+# List root directory contents
+ls /
+
+# Move into configuration directory and inspect
+cd /etc
+ls
+
+# Move into user home directories
+cd /home
+ls
+
+# Move into variable data directory (logs, caches)
+cd /var
+ls</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Successfully navigated and understood the structure and purpose of major Linux FHS directories.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-03" data-index="03">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 03</span>
+                    <h3 class="exp-title">Mastering the Command Line Interface (CLI) and basic terminal operations</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To learn basic command-line operations in Linux using the terminal.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Command Line Terminal</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">The Command Line Interface (CLI) allows users to directly interact with the operating system kernel by executing precise textual directives. It provides exceptional speed, reproducibility, and scripting capabilities compared to standard Graphical User Interfaces (GUIs).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Fire up your system terminal interface.<br>2. Run core informational utilities such as `date`, `cal`, and `whoami`.<br>3. Leverage system manuals by executing the `man` utility followed by your choice command to examine arguments and parameters.<br>4. Clean up your current view using the terminal clear sequence.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Display current system date, time, and timezone
+date
+
+# Display current month calendar layout
+cal
+
+# Display full year calendar layout
+cal -y
+
+# Print active user login identity details
+whoami
+
+# Load official manual documentation for file listing commands
+man ls
+
+# Wipe the terminal console buffer clean
+clear</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Basic terminal operations were executed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-04" data-index="04">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 04</span>
+                    <h3 class="exp-title">File management operations using command-line utilities</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To perform file creation, copying, moving, renaming, and deletion using Linux commands.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Command Line Utility Workspace</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">File management forms the foundation of system interaction. Linux provides structural commands (`touch`, `mkdir`, `cp`, `mv`, `rm`) to systematically organize, duplicate, transport, and eliminate files or directories within its ecosystem.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Open the bash shell terminal.<br>2. Build a dummy placeholder text file using the `touch` utility.<br>3. Provision a fresh path tree structure with the `mkdir` application.<br>4. Perform structural file adjustments including copying (`cp`), renaming/moving (`mv`), and deleting (`rm` / `rmdir`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Create an empty file named file1.txt
 touch file1.txt
+
+# Create a new directory directory named testdir
 mkdir testdir
+
+# Copy file1.txt inside the new testdir folder
 cp file1.txt testdir/
+
+# Rename or move file1.txt to a new name file2.txt
 mv file1.txt file2.txt
+
+# Permanently delete the renamed file2.txt
 rm file2.txt
-rmdir testdir
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- File management operations were performed successfully.
-EX.NO : 05
-Administration of local user accounts and group memberships
-DATE :
-AIM
-To create and manage users and groups in Linux.
 
-Procedure
-➢ Create a new user.
-➢ Create a group.
-➢ Add user to the group.
-➢ Verify user and group details.
-.
-Core Commands
+# Delete the subdirectory testdir (must be empty)
+rmdir testdir</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>File management operations were performed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-05" data-index="05">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 05</span>
+                    <h3 class="exp-title">Administration of local user accounts and group memberships</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To create and manage users and groups in Linux.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux System Terminal with Superuser (sudo) Access</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Linux is inherently a multi-user environment. Account provisioning controls user authentication security boundaries, while group grouping models facilitate shared resource administration, access isolation, and collective security rule delegation.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Invoke administrative elevation commands (`sudo`) to register a new user identity system-wide.<br>2. Define a strong authentication string for this profile via the password command utility.<br>3. Provision a collective team group classification identifier.<br>4. Append the new student target into the auxiliary secondary group and query the group mapping to confirm validation metrics.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Register and create a new local user called student1
 sudo useradd student1
+
+# Assign a secure password phrase to student1 account
 sudo passwd student1
+
+# Construct a structural resource management group called labgroup
 sudo groupadd labgroup
+
+# Append user student1 to the labgroup collection non-destructively
 sudo usermod -aG labgroup student1
-id student1
-Directory Overview
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- User and group administration tasks were completed successfully.
-EX.NO : 06
-Implementation of file system permissions and access control lists
-DATE (ACLs) :
-AIM
- To implement file permissions and ACLs in Linux.
 
-Procedure
-➢ Create a file.
-➢ Assign permissions using chmod.
-➢ Set ACL permissions using setfacl.
-.
-Core Commands
-Implementation of Traditional File Permissions
-Traditional file permissions are widely implemented in Unix-like systems (such as Linux) and focus
-on three user classes: the owner, the owning group, and all others.
-• Permissions: There are three basic permission types:
-o Read (r): Allows viewing the content of a file or listing the contents of a directory.
-o Write (w): Allows modifying a file's content or adding/removing files within a
-directory.
-o Execute (x): Allows running an executable file or script, or accessing a directory
-(search permission).
-• Commands (Linux):
-o ls -l: Displays file permissions. A hyphen (-) indicates a regular file, and d indicates a
-directory.
-o chmod: Changes permissions using symbolic (e.g., u+r) or numeric (octal, e.g., 755)
-modes.
-o chown: Changes the file owner.
-o chgrp: Changes the group owner.
-Implementation of Access Control Lists (ACLs)
-ACLs are an extension of the traditional permission model, allowing administrators to define
-permissions for individual users or groups not covered by the standard owner and group
-permissions.
-• Key Concepts:
-o Granularity: ACLs offer more detailed control, useful in complex environments where
-specific access is needed for multiple users or groups.
-o Access Control Entries (ACEs): Each ACL is a list of entries, with each ACE
-specifying a user or group and their allowed/denied operations.
-o ACL Mask: An ACL mask defines the maximum permissions that can be granted to
-named users, named groups, and the owning group, ensuring compatibility with
-applications that only understand traditional permissions.
-o Default ACLs: These can be set on a directory to ensure that new files and
-subdirectories created within it automatically inherit specific ACL entries.
-o Inheritance: In some systems like Windows, ACLs have robust inheritance features,
-while in Linux, default ACLs are used for new items.
-• Commands (Linux): The primary command-line tools for managing POSIX ACLs
-are getfacl and setfacl.
-o getfacl [filename]: Displays the ACLs for a file or directory. A file with an ACL will
-have a + symbol at the end of its permission string when using ls -l.
-o setfacl -m u:[user]:[permissions] [filename]: Modifies the ACL to grant specific
-permissions to a named user.
-o setfacl -x u:[user] [filename]: Removes a specific user's ACL entry.
-o setfacl -b [filename]: Removes all extended ACL entries.
-o setfacl -d -m g:[group]:[permissions] [directory]: Sets a default ACL for a directory.
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
-File permissions and ACLs were implemented successfully.
-EX.NO : 07
-Monitoring and management of Linux system processes and
-DATE resources :
-AIM
- To monitor system processes and resource usage.
-Procedure
-1. Display running processes.
-2. Monitor CPU and memory usage.
-3. Terminate a process.
+# Audit and verify the user identity details and group assignments
+id student1</pre>
+                    </div>
+                </div>
 
-.
-Core Commands
-1. Process Monitoring (Real-Time & Snapshots)
-• top: The standard real-time tool for viewing processes, CPU usage, and memory.
-Press Shift+P to sort by CPU usage.
-• htop: A modern, interactive upgrade to top with a color-coded interface and mouse support.
-• ps: Provides a static snapshot of current processes. Use ps aux to see all running processes
-across all users.
-• pstree: Displays processes in a tree-like hierarchy to show parent-child relationships.
-• pgrep: Searches for processes by name and returns their Process IDs (PIDs).
-2. Process Management (Signals & Priority)
-• kill: Terminates a process by its PID. kill -9 <PID> sends a SIGKILL to force termination.
-• pkill / killall: Terminates processes by name rather than PID.
-• nice: Starts a new process with a specific priority (niceness). Values range from -20 (highest
-priority) to 19 (lowest).
-• renice: Changes the priority of an already running process.
-3. Resource-Specific Monitoring
-• Memory: free -h shows a summary of physical and swap memory in human-readable format.
-• Disk I/O: iostat -xz 1 monitors disk throughput and performance, while iotop identifies
-specific processes hogging disk bandwidth.
-• Network: ss -tuln (modern replacement for netstat) displays active listening ports and
-connections.
-• Overall System Stats: vmstat 1 reports on virtual memory, CPU activity, and system calls
-every second.
-4. Background & Job Control
-• command &: Runs a command immediately in the background.
-• jobs: Lists background jobs in the current shell session.
-• fg %<job_id>: Brings a background or stopped job to the foreground.
-• bg %<job_id>: Resumes a suspended job in the background.
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
-System processes and resources were monitored and managed successfully.
-EX.NO : 08
-Configuration and securing of OpenSSH for remote access
-DATE :
-AIM
-To configure and secure OpenSSH service.
-Procedure
-1. Install OpenSSH.
-2. Start SSH service.
-3. Secure SSH configuration.
-Commands
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>User and group administration tasks were completed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-06" data-index="06">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 06</span>
+                    <h3 class="exp-title">Implementation of file system permissions and access control lists (ACLs)</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To implement file permissions and ACLs in Linux.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Terminal supporting POSIX ACL modules</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Traditional file permissions categorize actions into Read (r), Write (w), and Execute (x) blocks mapped strictly across Owner, Group, and Others profiles. For multi-tenant systems requiring fine-grained authorization rules beyond basic owner-group limits, standard POSIX Access Control Lists (ACLs) are applied to offer precise, user-specific permission overrides.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Generate an operational text file and inspect current metadata via granular listing structures (`ls -l`).<br>2. Alter standard access flags using symbolic or absolute numerical base-8 modes via the `chmod` tool.<br>3. Inspect extended authorization listings with the `getfacl` system tool.<br>4. Bind specific non-owner profiles with access privileges using the `setfacl` stream modifier utility.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># View granular file parameters and permissions
+ls -l
+
+# Assign full user rights, read-execute group rights, and zero public access
+chmod 750 sample_file.txt
+
+# Check the formal operational configuration entries on the targets
+getfacl sample_file.txt
+
+# Inject an override access privilege specifically targeting user guest1
+setfacl -m u:guest1:rx sample_file.txt
+
+# Strip all custom expanded ACL permissions back to baseline settings
+setfacl -b sample_file.txt</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>File permissions and ACLs were implemented successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-07" data-index="07">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 07</span>
+                    <h3 class="exp-title">Monitoring and management of Linux system processes and resources</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To monitor system processes and resource usage.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Terminal Environment</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">A process is simply an active program execution instance. Efficient performance tuning requires monitoring continuous metrics (via tools like `top`, `htop`, `ps`) and managing system priorities (`nice`, `renice`) or forcefully terminating unstable processes via signaling wrappers (`kill`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Launch real-time system monitoring wrappers (`top`) to inspect computing statistics.<br>2. Take static diagnostic snapshots using process parameter tags (`ps aux`).<br>3. Trace parental dependency configurations via structured execution branches (`pstree`).<br>4. Trigger controlled termination routines using target process descriptors.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Launch real-time resource visualization dashboard console
+top
+
+# Print a full global view snapshot of active processes from all system users
+ps aux
+
+# Visualize process lineages in a parent-child dependency tree format
+pstree
+
+# Lookup the distinct operational Process ID (PID) matching a named service
+pgrep sleep
+
+# Gracefully close or forcefully terminate a process by providing its PID
+kill -9 <PID_NUMBER>
+
+# Review active memory constraints, free buffers, and system swap stats
+free -h</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>System processes and resources were monitored and managed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-08" data-index="08">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 08</span>
+                    <h3 class="exp-title">Configuration and securing of OpenSSH for remote access</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To configure and secure OpenSSH service.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Terminal, OpenSSH Packages, Administrative Permissions</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">OpenSSH facilitates fully encrypted shell communications across unprotected networking infrastructures. Hardening this environment requires configuring service settings within centralized system structures (`/etc/ssh/sshd_config`) to mitigate risk exposure.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Retrieve and configure server modules via packaging tools.<br>2. Enable system automation trackers to ensure persistence after reboot sequences.<br>3. Access the main daemon parameter configurations using text editing software.<br>4. Strengthen remote connectivity by changing default ports, disabling direct administration rules, and restarting the service daemon.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Install the remote operational server modules
 sudo apt install openssh-server
+
+# Trigger the execution engines and activate daemon tracking
 sudo systemctl start ssh
 sudo systemctl enable ssh
+
+# Edit configuration scripts to optimize structural hardening parameters
 sudo nano /etc/ssh/sshd_config
-.
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- OpenSSH was configured and secured successfully.
-EX.NO : 09
-Implementation of basic Shell Programming logic: a. Interactive
-scripts with user input b. Handling positional parameters c.
-Arithmetic operations d. Conditional statements (if-then-else,
-nested if) e. Logical operators and complex conditions f. Multi-way
-branching using elif and case structures g. Iterative constructs using
-while and for loops h. Use of shell meta characters and globbing
-DATE :
-AIM
- To implement basic shell programming constructs.
 
-.
-Core Commands
-a. Interactive Scripts with User Input
-Use read to take input from the user.
-#!/bin/bash
-echo "Enter your name:"
-read name
-echo "Welcome, $name"
-b. Handling Positional Parameters
-Command-line arguments are accessed using $1, $2, $3, ...
-#!/bin/bash
-echo "First argument: $1"
-echo "Second argument: $2"
-echo "Total arguments: $#"
-echo "All arguments: $@"
-Run as:
-./script.sh Linux Shell
-c. Arithmetic Operations
-Using expr:
-a=10
-b=5
-sum=`expr $a + $b`
-echo "Sum = $sum"
-Using double parentheses (recommended):
-a=10
-b=5
-echo "Difference = $((a - b))"
-echo "Product = $((a * b))"
-d. Conditional Statements (if–then–else, Nested if)
-Simple if–else
-if [ $a -gt $b ]
-then
- echo "a is greater"
+# Reload service configuration bindings cleanly to enforce changes
+sudo systemctl restart ssh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>OpenSSH was configured and secured successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-09" data-index="09">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 09</span>
+                    <h3 class="exp-title">Implementation of basic Shell Programming logic</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To implement basic shell programming constructs such as user interactive elements, parameter tracking, mathematics, decision trees, loop sequences, and file matching syntax expressions.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Bash Shell Script environment compiler interface</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Shell scripting integrates system automation routines into structured script loops. Bash scripts support internal standard variable operations, boolean evaluations, conditional control switches, and wildcards (`globbing`) to efficiently manage data files at scale.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Structure standard script header lines (`#!/bin/bash`) to direct script executions to the appropriate interpreter path.<br>2. Build parameter input collectors using prompt utilities.<br>3. Compose conditional tests using numeric constraints and switch wrappers.<br>4. Deploy counting sequences using loops and test matching rules via shell metacharacters.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Grant execute privileges to the target application script
+chmod +x logic_demo.sh
+
+# Fire up script testing and include diagnostic data arguments
+./logic_demo.sh Param1 Param2</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# logic_demo.sh - Multi-construct structural logic platform
+
+echo "=== A. INTERACTIVE SCRIPTS WITH USER INPUT ==="
+read -p "Enter your designated system profile name: " name
+echo "Greetings, $name. Initialization subroutines activated."
+
+echo -e "
+=== B. HANDLING POSITIONAL PARAMETERS ==="
+echo "First Argument Provided ($1): $1"
+echo "Second Argument Provided ($2): $2"
+echo "Total Arguments Evaluated: $#"
+echo "Global Data Array: $@"
+
+echo -e "
+=== C. ARITHMETIC OPERATIONS ==="
+val1=25
+val2=10
+sum=$((val1 + val2))
+diff=$((val1 - val2))
+echo "Base Metrics: Variable A=$val1, Variable B=$val2"
+echo "Computed Values: Summation=$sum, Difference=$diff"
+
+echo -e "
+=== D. CONDITIONAL STATEMENTS & E. LOGICAL OPERATORS ==="
+if [ $val1 -gt 0 ] && [ $val2 -gt 0 ]; then
+    echo "Validation Success: Both values evaluate as strictly positive integers."
+    if [ $val1 -gt $val2 ]; then
+        echo "Nested Audit: $val1 exceeds the value of $val2."
+    fi
+fi
+
+echo -e "
+=== F. MULTI-WAY BRANCHING USING ELIF AND CASE ==="
+score=82
+if [ $score -ge 90 ]; then
+    echo "Assigned Grade Classification: Exemplary (A)"
+elif [ $score -ge 75 ]; then
+    echo "Assigned Grade Classification: Meritorious (B)"
 else
- echo "b is greater"
+    echo "Assigned Grade Classification: General Pass (C)"
 fi
-Nested if
-if [ $a -gt 0 ]
-then
- if [ $a -lt 100 ]
- then
- echo "a is between 1 and 99"
- fi
-fi
-e. Logical Operators and Complex Conditions
-Logical operators:
-• AND → -a or &&
-• OR → -o or ||
-• NOT → !
-if [ $a -gt 0 ] && [ $b -gt 0 ]
-then
- echo "Both numbers are positive"
-fi
-if [ $a -lt 0 ] || [ $b -lt 0 ]
-then
- echo "At least one number is negative"
-fi
-f. Multi-way Branching Using elif and case
-Using elif
-if [ $marks -ge 90 ]
-then
- echo "Grade A"
-elif [ $marks -ge 75 ]
-then
- echo "Grade B"
-elif [ $marks -ge 60 ]
-then
- echo "Grade C"
-else
- echo "Fail"
-fi
-Using case
-#!/bin/bash
-echo "Enter a choice:"
-read ch
-case $ch in
- 1) echo "You chose One" ;;
- 2) echo "You chose Two" ;;
- 3) echo "You chose Three" ;;
- *) echo "Invalid choice" ;;
+
+echo "--- Case Architecture Validation ---"
+operational_mode="STANDBY"
+case $operational_mode in
+    "ACTIVE") echo "Status reported: Core operational array online." ;;
+    "STANDBY") echo "Status reported: System in power conservation standby mode." ;;
+    *) echo "Status reported: Alert! Unrecognized command indicator." ;;
 esac
-g. Iterative Constructs Using while and for Loops
-while loop
-i=1
-while [ $i -le 5 ]
-do
- echo "Count: $i"
- i=$((i+1))
-done
-for loop
-for i in 1 2 3 4 5
-do
- echo "Number: $i"
-done
-For loop with range
-for i in {1..5}
-do
- echo "Value: $i"
-done
-h. Use of Shell Meta Characters and Globbing
-Common Meta Characters
-Character Meaning
-* Matches any number of characters
-? Matches exactly one character
-[] Matches a range or set
-> Output redirection
-< Input redirection
-` `
-Examples of Globbing
-ls *.txt # All text files
-ls file?.sh # file1.sh, file2.sh
-ls [a-c]* # Files starting with a, b, or c
-Redirection & Pipe
-ls > files.txt
-cat files.txt | grep ".sh"
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Shell programming concepts were implemented successfully.
-EX.NO : 10
-Development of a shell script to display specific line ranges from a
-DATE : given file
-AIM
- To display specific line ranges from a given file using a shell script.
-Procedure
-A shell script to display specific line ranges from a file can be developed using standard Unix/Linux
-command-line utilities such as sed, awk, or head and tail.
-Here are three methods:
-Method 1: Using sed (Recommended for simple line ranges)
-The sed command uses the syntax sed -n 'start_line,end_linep' filename to print (the p flag) only the
-lines within the specified range (the -n option suppresses default output).
-bash
-#!/bin/bash
-# Check if file, start, and end lines are provided
-if [ "$#" -ne 3 ]; then
- echo "Usage: $0 <filename> <start_line> <end_line>"
- exit 1
-fi
-FILE="$1"
-START="$2"
-END="$3"
-# Check if the file exists
-if [ ! -f "$FILE" ]; then
- echo "Error: File not found - $FILE"
- exit 1
-fi
-echo "--- Displaying lines $START to $END from $FILE ---"
-# The 'p' command prints the selected lines
-sed -n "${START},${END}p" "$FILE"
-Method 2: Using awk (Good for flexible logic)
-The awk command can check the current line number (NR) against the specified range.
-bash
-#!/bin/bash
-# Check if file, start, and end lines are provided
-if [ "$#" -ne 3 ]; then
- echo "Usage: $0 <filename> <start_line> <end_line>"
- exit 1
-fi
-FILE="$1"
-START="$2"
-END="$3"
-# Check if the file exists
-if [ ! -f "$FILE" ]; then
- echo "Error: File not found - $FILE"
- exit 1
-fi
-echo "--- Displaying lines $START to $END from $FILE ---"
-# The condition '(NR >= START) && (NR <= END)' prints lines in range
-awk -v start="$START" -v end="$END" 'NR >= start && NR <= end' "$FILE"
-Method 3: Using head and tail (Best if only the end of the range is needed)
-This method first uses head to get the first end_line lines, and then uses tail to select the
-last (end_line - start_line) + 1 lines from that subset.
-bash
-#!/bin/bash
-# Check if file, start, and end lines are provided
-if [ "$#" -ne 3 ]; then
- echo "Usage: $0 <filename> <start_line> <end_line>"
- exit 1
-fi
-FILE="$1"
-START="$2"
-END="$3"
-LINES_TO_DISPLAY=$((END - START + 1))
-# Check if the file exists
-if [ ! -f "$FILE" ]; then
- echo "Error: File not found - $FILE"
- exit 1
-fi
-echo "--- Displaying lines $START to $END from $FILE ---"
-# Pipe the output of head to tail
-head -n "$END" "$FILE" | tail -n "$LINES_TO_DISPLAY"
-How to Use the Scripts:
-1. Save one of the scripts above as a file (e.g., display_range.sh).
-2. Make it executable from your terminal:
-bash
-chmod +x display_range.sh
-3. Run it, providing the filename, start line, and end line as arguments:
-bash
-./display_range.sh your_file.txt 10 25
-.
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Specified line range was displayed successfully.
-EX.NO : 11
-Creation of a shell script to delete lines containing specific patterns
-DATE across multiple files :
-AIM
- To delete lines containing a specific pattern from multiple files.
 
-To create a shell script that deletes all lines containing a specified pattern from multiple files in
-a given directory.
-Procedure
-1. Open the Linux terminal.
-2. Create multiple text files containing sample data.
-3. Write a shell script that:
-o Accepts a pattern from the user.
-o Applies the deletion operation to all text files.
-4. Use stream editor (sed) to remove lines containing the pattern.
-5. Execute the script and verify the updated files.
-Shell Script
-#!/bin/bash
-read -p "Enter the pattern to delete: " pattern
-echo "Deleting lines containing '$pattern' from all .txt files..."
-sed -i "/$pattern/d" *.txt
-echo "Operation completed."
-Commands to Execute
-chmod +x delete_pattern.sh
-./delete_pattern.sh
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Lines containing the specified pattern were deleted successfully.
-EX.NO : 12
-Scripting to identify and list files with specific read, write, and
-DATE execute permissions :
-AIM
-To develop a shell script that identifies and lists files having specific read (r), write (w), and execute (x)
-permissions for the user.
-Procedure
-1. Open the Linux terminal.
-2. Create a shell script file using a text editor.
-3. Accept a directory name as input from the user.
-4. Check each file in the directory for read, write, and execute permissions.
-5. Display files matching the required permission criteria.
-6. Execute the script and verify the output.
-Shell Script
-#!/bin/bash
-read -p "Enter directory path: " dir
-if [ ! -d "$dir" ]; then
- echo "Invalid directory"
- exit 1
-fi
-echo "Files with Read, Write, and Execute permissions:"
-for file in "$dir"/*
-do
- if [ -f "$file" ]; then
- if [ -r "$file" ] && [ -w "$file" ] && [ -x "$file" ]; then
- echo "$(basename "$file")"
- fi
- fi
+echo -e "
+=== G. ITERATIVE CONSTRUCTS (WHILE & FOR LOOPS) ==="
+counter=1
+while [ $counter -le 3 ]; do
+    echo "While Loop Iteration Metric: Index Value = $counter"
+    counter=$((counter + 1))
 done
-Commands to Execute
-chmod +x permission_check.sh
-./permission_check.sh
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- The shell script successfully identified and listed files that have read, write, and execute permissions for
-the user in the specified directory.
-EX.NO : 13
-Advanced file handling and directory management: a. Automating
-file creation in specific directory paths ($USER/class/ batch). b.
-Copying and managing page profiles. c. Identifying and printing
-differences between files. d. Pattern matching and extraction using
-grep/sed.
-DATE :
-AIM
- To perform advanced file handling and directory management operations in Linux, including automated
-directory creation, file copying, file comparison, and pattern matching using standard command-line utilities.
-a) Automating File Creation in Specific Directory Paths ($USER/class/batch)
-Procedure
-1. Use environment variables to identify the current user.
-2. Create nested directories automatically.
-3. Create files inside the specified path.
-Shell Script
-#!/bin/bash
-BASE="/home/$USER/class/batch"
-mkdir -p "$BASE"
-touch "$BASE"/file{1..5}.txt
-echo "Directories and files created successfully at $BASE"
-Result
-The directory path $USER/class/batch was created automatically and files were generated successfully.
-b) Copying and Managing Page Profiles
-(Assuming page profiles as configuration/profile files)
-Procedure
-1. Create a directory for profile backups.
-2. Copy profile files while preserving permissions.
-Commands
-mkdir -p ~/profile_backup
-cp -p ~/.bashrc ~/.profile ~/profile_backup/
-ls -l ~/profile_backup
-Result
-Page/profile configuration files were copied and preserved successfully.
-c) Identifying and Printing Differences Between Files
-Procedure
-1. Create two files with slight content variations.
-2. Use diff to identify differences.
-Commands
-diff file1.txt file2.txt
-diff -u file1.txt file2.txt
-Result
-Differences between the files were identified and displayed successfully.
-d) Pattern Matching and Extraction Using grep and sed
-Procedure
-1. Search for specific patterns in a file using grep.
-2. Extract or modify matching content using sed.
-Commands
-grep "error" logfile.txt
-grep -n "warning" logfile.txt
-sed -n '/error/p' logfile.txt
-sed 's/Linux/UNIX/g' sample.txt
 
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- Pattern matching and extraction were performed successfully using grep and sed.
-EX.NO : 14
-System utility scripting: a. Reporting the current count of logged-in
-users. b. Generating column-formatted file listings. c. Managing job
-priorities (nice/renice). d. Implementing persistent background
-tasks (nohup/disown).
-DATE :
-AIM
-To develop and execute shell scripts for system utility operations such as monitoring logged-in users,
-generating formatted file listings, managing job priorities, and running persistent background tasks in Linux.
-a) Reporting the Current Count of Logged-in Users
-Procedure
-1. Use system utilities to list active user sessions.
-2. Count the number of logged-in users.
-3. Display the result.
-Shell Script
-#!/bin/bash
-count=$(who | wc -l)
-echo "Current number of logged-in users: $count"
-Result
-The script successfully displayed the current number of logged-in users.
-b) Generating Column-Formatted File Listings
-Procedure
-1. List files in the current directory.
-2. Format the output into neat columns.
-3. Display file name, size, and permissions.
-Commands
-ls -l | column -t
-Alternative Script
-#!/bin/bash
-ls -lh | column -t
-Result
-File listings were displayed in well-aligned column format.
-c) Managing Job Priorities (nice and renice)
-Procedure
-1. Start a process with a specific priority using nice.
-2. Change the priority of a running process using renice.
-3. Verify the priority.
-Commands
-nice -n 10 sleep 300 &
-ps -o pid,ni,cmd
-renice -n 5 -p <PID>
-Result
-Process priorities were successfully assigned and modified.
-d) Implementing Persistent Background Tasks (nohup / disown)
-Procedure
-1. Run a command in the background.
-2. Ensure it continues after terminal logout.
-3. Verify output logging.
-Commands
-nohup ./script.sh > output.log 2>&1 &
-disown
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
-EX.NO : 15
-Development of a shell-based database application for student
-DATE record management (View, Add, Delete) :
-AIM
-
-Procedure
-To develop a shell-based database application for managing student records with basic operations
-such as Add, View, and Delete using Linux shell scripting.
-Procedure
-1. Create a text file to act as a database for storing student records.
-2. Write a shell script that displays a menu-driven interface.
-3. Implement options to:
-o Add a new student record.
-o View all existing student records.
-o Delete a student record based on roll number.
-4. Use standard Linux utilities like echo, read, grep, and sed.
-5. Execute the script and verify all operations.
-Database File Format
-Each record is stored in the format:
-RollNo | Name | Department | Year
-Example:
-101 | Ravi | CSE | 2
-Shell Script
-#!/bin/bash
-DB="student_db.txt"
-touch "$DB"
-while true
-do
- echo "-----------------------------------"
- echo " Student Record Management System "
- echo "-----------------------------------"
- echo "1. Add Student Record"
- echo "2. View Student Records"
- echo "3. Delete Student Record"
- echo "4. Exit"
- echo "-----------------------------------"
- read -p "Enter your choice: " choice
- case $choice in
- 1)
- read -p "Enter Roll Number: " roll
- read -p "Enter Name: " name
- read -p "Enter Department: " dept
- read -p "Enter Year: " year
- echo "$roll | $name | $dept | $year" >> "$DB"
- echo "Record added successfully."
- ;;
- 2)
- if [ ! -s "$DB" ]; then
- echo "No records found."
- else
- echo "Student Records:"
- echo "----------------------------"
- column -t -s "|" "$DB"
- fi
- ;;
- 3)
- read -p "Enter Roll Number to delete: " roll
- if grep -q "^$roll" "$DB"; then
- sed -i "/^$roll/d" "$DB"
- echo "Record deleted successfully."
- else
- echo "Record not found."
- fi
- ;;
- 4)
- echo "Exiting application."
- exit 0
- ;;
- *)
- echo "Invalid choice. Try again."
- ;;
- esac
+for index in {1..3}; do
+    echo "For Range Structural Loop Tracker: Element = $index"
 done
-Commands to Execute
-chmod +x student_db.sh
-./student_db.sh
-Aim & Procedure
-System Requirements
-Code & Logic
-Execution & Result
-Viva
-Total
-RESULT
- The shell-based database application was successfully developed and executed. Student records were
-added, viewed, and deleted correctly using a menu-driven interface.
 
-REFERENCES
-https://www.redhat.com/en/topics/linux/what-is-linux
+echo -e "
+=== H. SHELL METACHARACTERS AND GLOBBING ==="
+echo "Displaying all local executable shell configurations:"
+ls -l *.sh 2>/dev/null || echo "No .sh targets mapped in current working directory path."
 </pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Shell programming concepts were implemented successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-10" data-index="10">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 10</span>
+                    <h3 class="exp-title">Development of a shell script to display specific line ranges from a given file</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To display specific line ranges from a given file using a shell script.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Terminal environment running Bash compiler services</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Parsing text files requires tools that slice specific sections from data streams. This task can be handled efficiently using text-processing tools like `sed` (Stream Editor) or custom pipeline combinations (`head` and `tail`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Build an processing shell executable script file.<br>2. Set variable blocks to handle passed parameter items ($1=File, $2=Start, $3=End).<br>3. Implement logical validations to confirm that target data files exist before executing text processing commands.<br>4. Run the stream parsing pipeline and inspect output accuracy.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Execute the line extraction application providing the configuration path, start line, and end line
+./display_range.sh /etc/passwd 3 7</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# display_range.sh - Line extraction system
+
+# Verify argument counts match operational standards
+if [ "$#" -ne 3 ]; then
+    echo "Usage Error: $0 <Target_File_Path> <Starting_Line_Int> <Ending_Line_Int>"
+    exit 1
+fi
+
+TARGET_FILE="$1"
+START_LINE="$2"
+END_LINE="$3"
+
+# Validate target path persistence
+if [ ! -f "$TARGET_FILE" ]; then
+    echo "Operational Error: Target path directory listing does not resolve to an active file."
+    exit 1
+fi
+
+# Confirm linear indexing validity
+if [ "$START_LINE" -gt "$END_LINE" ]; then
+    echo "Input Logic Error: Stated range initializer cannot exceed termination value boundaries."
+    exit 1
+fi
+
+echo "--- Extracting Line Ranges: Block [$START_LINE to $END_LINE] From Source: $TARGET_FILE ---"
+# Parse specific rows from the file using the stream editor
+sed -n "${START_LINE},${END_LINE}p" "$TARGET_FILE"
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Specified line range was displayed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-11" data-index="11">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 11</span>
+                    <h3 class="exp-title">Creation of a shell script to delete lines containing specific patterns across multiple files</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To delete lines containing a specific pattern from multiple files.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Bash Shell environment workspace interface</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Automating file edits across multiple data targets requires inline stream editing. Using `sed` with the in-place (`-i`) flag allows you to instantly search for and remove lines matching specific patterns across all specified targets.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Set up test directory branches holding multiple text file configurations.<br>2. Build a pattern clearing shell script engine.<br>3. Implement automated prompt trackers to store query filters into script strings.<br>4. Run the in-place processing engine across all files matching the target format.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Give execution permissions to the cleanup script
+chmod +x delete_pattern.sh
+
+# Run the automated line purging utility
+./delete_pattern.sh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# delete_pattern.sh - Multiple target data parsing engine
+
+# Query user for target pattern string
+read -p "Provide the specific keyword pattern to purge from file systems: " pattern
+
+if [ -z "$pattern" ]; then
+    echo "Input validation error: Search argument cannot resolve empty."
+    exit 1
+fi
+
+echo "Initializing bulk line removal routines for rows matching: '$pattern' across all local .txt paths..."
+
+# Run in-place stream editor deletions across matching text files
+sed -i "/$pattern/d" *.txt
+
+echo "Batch execution sequences finalized successfully."
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Lines containing the specified pattern were deleted successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-12" data-index="12">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 12</span>
+                    <h3 class="exp-title">Scripting to identify and list files with specific read, write, and execute permissions</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To develop a shell script that identifies and lists files having specific read (r), write (w), and execute (x) permissions for the user.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Bash Environment</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Automating permission audits helps maintain clear system visibility. File access characteristics can be checked directly within shell loop conditions by using targeted directory flags (`-r`, `-w`, `-x`) to inspect files.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Build an access auditing script wrapper.<br>2. Add prompt inputs to accept the target directory path parameter.<br>3. Run loop sequences over directory listings while filtering out subdirectories.<br>4. Print any file matches that satisfy all user permission criteria.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Make file access auditing script runnable
+chmod +x permission_check.sh
+
+# Launch the compliance checking routine
+./permission_check.sh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# permission_check.sh - Access permissions compliance audit system
+
+read -p "Enter target directory path to run permission audit: " target_dir
+
+# Validate directory target existence
+if [ ! -d "$target_dir" ]; then
+    echo "System Path Error: Stated parameter does not resolve to an active directory tree."
+    exit 1
+fi
+
+echo "Scanning... Locating standard files with full User Read, Write, and Execute [rwx] permissions:"
+echo "------------------------------------------------------------------------"
+
+for item in "$target_dir"/*; do
+    # Filter for standard files only, ignoring child directory pathways
+    if [ -f "$item" ]; then
+        # Audit user access flag configurations simultaneously
+        if [ -r "$item" ] && [ -w "$item" ] && [ -x "$item" ]; then
+            echo "Compliant Item Found: $(basename "$item")"
+        fi
+    fi
+done
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>The shell script successfully identified and listed files that have read, write, and execute permissions for the user in the specified directory.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-13" data-index="13">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 13</span>
+                    <h3 class="exp-title">Advanced file handling and directory management</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To perform advanced file handling and directory management operations in Linux, including automated directory creation, file copying, file comparison, and pattern matching using standard command-line utilities.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Advanced core terminal subsystem libraries</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">Advanced administration involves orchestrating automated nested path environments (`mkdir -p`), preserving metadata profiles across file transfers (`cp -p`), comparing system outputs via file diffs (`diff`), and running stream transformations (`grep`/`sed`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Script nested path expansion systems using built-in system variables (`$USER`).<br>2. Back up critical application profile files while keeping their system timestamps intact.<br>3. Track structural variations between text configurations using unified diff layouts.<br>4. Run localized text parsing matches using grep search utilities.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Make advanced file utility module runnable
+chmod +x advanced_mgmt.sh
+
+# Run the file utility orchestrator
+./advanced_mgmt.sh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# advanced_mgmt.sh - Comprehensive environment maintenance dashboard
+
+echo "=== A. AUTOMATING NESTED DIRECTORY PATH EXPANSION ==="
+BASE_DIR="/home/$USER/class/batch"
+mkdir -p "$BASE_DIR"
+touch "$BASE_DIR"/file{1..5}.txt
+echo "Target structures verified. Automated storage nodes initialized at: $BASE_DIR"
+
+echo -e "
+=== B. PAGE PROFILE BACKUP CONFIGURATIONS ==="
+BACKUP_NODE="$HOME/profile_backup"
+mkdir -p "$BACKUP_NODE"
+# Copy system configuration files while preserving metadata attributes
+cp -p ~/.bashrc ~/.profile "$BACKUP_NODE/" 2>/dev/null
+echo "Backup execution finalized. File security states preserved in: $BACKUP_NODE"
+ls -lh "$BACKUP_NODE"
+
+echo -e "
+=== C. IDENTIFYING STRUCTURAL VARIATIONS VIA DIFF ==="
+echo "Generating temporary dataset nodes for analysis..."
+echo -e "Profile Alpha\nData Component X\nSystem Node Active" > text_alpha.txt
+echo -e "Profile Alpha\nData Component Y\nSystem Node Active" > text_beta.txt
+echo "Analyzing structural variations (Standard View):"
+diff text_alpha.txt text_beta.txt
+rm -f text_alpha.txt text_beta.txt
+
+echo -e "\n=== D. ADVANCED PATTERN STREAM EXTRACTS VIA SED & GREP ==="
+echo -e "SYSTEM_ERR: Database connection timeout.\nSYSTEM_WARN: Resource threshold close to maximum.\nSYSTEM_ERR: Auth token expired." > active_log.txt
+echo "Filtering target ERROR identifiers using grep logs:"
+grep "SYSTEM_ERR" active_log.txt
+echo "Executing stream context replacement patterns with Sed:"
+sed 's/SYSTEM_WARN/ALERT_WARNING/g' active_log.txt
+rm -f active_log.txt
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>Pattern matching and extraction were performed successfully using grep and sed.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-14" data-index="14">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 14</span>
+                    <h3 class="exp-title">System utility scripting</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To develop and execute shell scripts for system utility operations such as monitoring logged-in users, generating formatted file listings, managing job priorities, and running persistent background tasks in Linux.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Linux Server Terminal Console environment profile</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">System operations require robust process scheduling tools. This includes managing terminal disconnections safely using persistent execution wrappers (`nohup`, `disown`), converting raw system logs into readable text tables (`column`), and shifting process scheduling rules dynamically via execution values (`nice`, `renice`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Query active system user tables and pipe results through counting tools.<br>2. Convert folder streams into organized column grids.<br>3. Launch background processes with custom scheduling configurations.<br>4. Deploy long-running background tasks configured to remain active even after closing the terminal window.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Make utility suite runnable
+chmod +x system_utils.sh
+
+# Run the operational monitoring package
+./system_utils.sh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>script_execution.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# system_utils.sh - Core server utility engine
+
+echo "=== A. CURRENT USER LOGIN COUNT METRICS ==="
+user_count=$(who | wc -l)
+echo "Active user login count verified at: $user_count session(s)."
+
+echo -e "
+=== B. GRAPHICAL COLUMN TABLE LISTING CONVERSIONS ==="
+echo "Formatting local file attributes into aligned tables:"
+ls -lh | head -n 5 | column -t
+
+echo -e "
+=== C. DYNAMIC TASK MANAGEMENT SCHEDULING (NICE / RENICE) ==="
+# Launch background process with an altered nice priority mapping
+nice -n 10 sleep 200 &
+TARGET_PID=$!
+echo "Background task successfully launched with Process ID: $TARGET_PID at priority level +10."
+echo "Modifying process scheduling dynamically via renice parameters..."
+sudo renice -n 5 -p $TARGET_PID
+kill -9 $TARGET_PID
+
+echo -e "
+=== D. PERSISTENT TASK DAEMON EXECUTION (NOHUP / DISOWN) ==="
+echo "Spawning persistent task detached from parent window closures..."
+# Prevent command cancellation when session terminates
+nohup sleep 1000 > /dev/null 2>&1 &
+disown $!
+echo "Process decoupled successfully. Task will persist independently across logouts."
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>System processes and resource utility parameters were tracked, updated, and managed successfully.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="experiment-card" id="exp-block-15" data-index="15">
+                <div class="card-header">
+                    <span class="exp-num">EX.NO : 15</span>
+                    <h3 class="exp-title">Development of a shell-based database application for student record management</h3>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">🎯 Aim of the Experiment</div>
+                    <div class="section-content font-target">To develop a menu-driven shell script acting as a lightweight database application to manage student records (View, Add, and Delete operations) using a flat-file database system.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚙️ Hardware & Software Requirements</div>
+                    <div class="section-content font-target">Bash Shell Script environment compiler interface</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📚 Theoretical Background Overview</div>
+                    <div class="section-content font-target">A structured system uses structural file formats where text rows represent data entries and character symbols separate distinct fields. This model allows text processing utilities to easily read, write, and delete records based on matching search filters.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📋 Step-by-Step Procedure Execution</div>
+                    <div class="section-content font-target">1. Create the persistent database file structure.<br>2. Build a loop switch container menu (`while true`, `case`).<br>3. Use conditional check filters (`grep -q`) to ensure unique primary keys and prevent duplicate data entries.<br>4. Parse text records into clean data tables using structured field formatters (`awk`).</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💻 Execution Shell Terminal Commands</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>Bash Terminal Commands Layer</span><span>Interactive Console</span></div>
+                        <pre class="font-target"># Set program permission switches to execute
+chmod +x student_db.sh
+
+# Launch interactive data app
+./student_db.sh</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📜 Developed Shell Script Engine Source Code</div>
+                    <div class="code-container">
+                        <div class="code-header-bar"><span>student_db.sh</span><span>Bash Code Structure</span></div>
+                        <pre class="font-target">#!/bin/bash
+# student_db.sh - Student Record Management System Flat-File Application
+
+DB_FILE="student_database.txt"
+touch "$DB_FILE" # Ensure database container exists
+
+while true; do
+    echo "====================================================="
+    echo "      STUDENT REGISTRY RECORD DATABASE MANAGER       "
+    echo "====================================================="
+    echo "1. Insert New Student Profile Entry"
+    echo "2. Generate Detailed Tabular Registry View"
+    echo "3. Remove Existing Student Record Entry"
+    echo "4. Shutdown Application Environment"
+    echo "====================================================="
+    read -p "Select Menu Directive Option [1-4]: " option
+
+    case $option in
+        1)
+            echo -e "
+[ADD PROFILE INTERFACE]"
+            read -p "Enter Target Student Unique Roll Number: " roll
+            if grep -q "^$roll:" "$DB_FILE"; then
+                echo "System Alert: Data conflict detected. Roll index already mapped."
+            else
+                read -p "Enter Candidate Full Legal Name: " name
+                read -p "Enter Academic Department Branch: " dept
+                read -p "Enter Evaluated Examination Score: " score
+                # Save entry to file using colon delimiters
+                echo "$roll:$name:$dept:$score" >> "$DB_FILE"
+                echo "Profile registered successfully inside core ledger storage node."
+            fi
+            echo ""
+            ;;
+        2)
+            echo -e "
+[CURRENT RECORED REGISTRY VIEWER]"
+            if [ ! -s "$DB_FILE" ]; then
+                echo "System State Message: Storage arrays report empty dataset registries."
+            else
+                echo -e "ROLL NO\t| STUDENT NAME\t\t| DEPT\t| MARKS"
+                echo "--------------------------------------------------------"
+                # Process structural segments via field delimiters
+                awk -F: '{printf "%-7s | %-20s | %-5s | %-5s\n", $1, $2, $3, $4}' "$DB_FILE"
+            fi
+            echo ""
+            ;;
+        3)
+            echo -e "
+[DELETION REMOVAL ENGINE]"
+            read -p "Enter Targeted Unique Roll Number for Deletion: " roll
+            if grep -q "^$roll:" "$DB_FILE"; then
+                # Filter out the matching row and write the rest back
+                grep -v "^$roll:" "$DB_FILE" > temp_db.txt
+                mv temp_db.txt "$DB_FILE"
+                echo "Target record removed from memory ledger nodes."
+            else
+                echo "System Entry Error: Selected index parameters do not match records."
+            fi
+            echo ""
+            ;;
+        4)
+            echo "Shutting down application memory interfaces. Session complete."
+            exit 0
+            ;;
+        *)
+            echo "Selection mismatch. Pick alternative options within defined parameters."
+            echo ""
+            ;;
+    esac
+done
+</pre>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">✅ Verified Experimental Results Output</div>
+                    <div class="section-content font-target"><strong>RESULT: </strong>A shell-based database application for student record management was successfully developed, evaluated, and verified. The database dynamically handled viewing, adding, and deleting operations on records across interactive system prompts.</div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 Continuous Assessment Grading Matrix Rubric</div>
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th>Assessment Parameter Category</th>
+                                <th>Aim & Procedure (4M)</th>
+                                <th>System Requirements (4M)</th>
+                                <th>Code & Logic Structure (4M)</th>
+                                <th>Execution & Verification (4M)</th>
+                                <th>Viva Voce (4M)</th>
+                                <th>Total Score (20M)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Marks Awarded Ledger</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>/20</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- No Matching Element Results Base Box Display -->
+        <div id="noResultsAlertElement" class="no-results">
+            No experiments match your specific search criteria. Please try adjusting your parameters or filter criteria.
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBar = document.getElementById('manualSearchInput');
+            const cards = document.querySelectorAll('.experiment-card');
+            const wrapper = document.getElementById('experimentsWrapper');
+            const noResults = document.getElementById('noResultsAlertElement');
+            const statsCounter = document.getElementById('matchStatsCounter');
+
+            searchBar.addEventListener('input', function(e) {
+                const queryText = e.target.value.toLowerCase().trim();
+                let matchingCount = 0;
+
+                if (queryText === '') {
+                    // Reset visibility settings cleanly across structural frames
+                    cards.forEach(card => {
+                        card.style.display = 'block';
+                        clearHighlights(card);
+                    });
+                    statsCounter.textContent = `Showing all ${cards.length} available experiments`;
+                    noResults.style.display = 'none';
+                    return;
+                }
+
+                cards.forEach(card => {
+                    // Pull searchable data segments safely
+                    const textCollection = card.textContent.toLowerCase();
+                    
+                    if (textCollection.includes(queryText)) {
+                        card.style.display = 'block';
+                        matchingCount++;
+                        applyHighlights(card, queryText);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Set dynamic dashboard counters matching results
+                if (matchingCount === 0) {
+                    noResults.style.display = 'block';
+                    statsCounter.textContent = 'Zero operational modules match';
+                } else {
+                    noResults.style.display = 'none';
+                    statsCounter.textContent = `Located ${matchingCount} matching execution block(s)`;
+                }
+            });
+
+            // Highlight utility rules logic loops matching strings safely
+            function applyHighlights(container, pattern) {
+                clearHighlights(container);
+                if (!pattern) return;
+                
+                const elementTargets = container.querySelectorAll('.font-target');
+                elementTargets.forEach(el => {
+                    // Preserve code blocks content from breaking parsing elements structural code layouts
+                    if(el.tagName === 'PRE') return; 
+                    
+                    const elementHTML = el.innerHTML;
+                    const regexQuery = new RegExp(`(${escapeRegExp(pattern)})`, 'gi');
+                    
+                    // Filter code configurations avoiding structural element corruption modifications
+                    if (!elementHTML.includes('<span') && !elementHTML.includes('<div')) {
+                        el.innerHTML = elementHTML.replace(regexQuery, '<mark>$1</mark>');
+                    }
+                });
+            }
+
+            function clearHighlights(container) {
+                const markedItems = container.querySelectorAll('mark');
+                markedItems.forEach(mark => {
+                    const parentNode = mark.parentNode;
+                    parentNode.replaceChild(document.createTextNode(mark.textContent), mark);
+                    parentNode.normalize(); // Normalize text nodes cleanly
+                });
+            }
+
+            function escapeRegExp(string) {
+                return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            }
+        });
+    </script>
+</body>
+</html>
